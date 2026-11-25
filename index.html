@@ -75,9 +75,31 @@ button{background:none;border:0;cursor:pointer}
 .b-ice .ic{background:rgba(248,248,248,.16);border:1px solid rgba(248,248,248,.35)}
 .b-99 .ic{background:var(--amar);border:0;color:var(--ink);font:900 17px "Barlow Condensed"}
 .sec{padding-top:38px}
-.lab{font:800 12px Barlow;letter-spacing:2.6px;color:var(--rosa);padding:0 22px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
-.tt{font:900 34px/.95 "Barlow Condensed";text-transform:uppercase;color:var(--rosa);padding:6px 22px 14px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
-.tt em{font-style:normal;color:var(--gelo)}
+.lab{font:800 12px Barlow;letter-spacing:2.6px;color:var(--verde);padding:0 22px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.tt{font:900 34px/.95 "Barlow Condensed";text-transform:uppercase;color:var(--verde);padding:6px 22px 14px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.tt em{font-style:normal;color:var(--verde)}
+/* termômetro */
+.temp{margin:0 16px 14px;padding:14px;border-radius:22px;display:flex;gap:14px;align-items:center;background:rgba(248,248,248,.12);border:1px solid rgba(248,248,248,.3);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 14px 30px -16px rgba(0,0,0,.5)}
+.temp[hidden]{display:none}
+.bear{position:relative;width:84px;height:84px;flex:none;border-radius:50%;box-shadow:0 0 0 3px var(--tc,#11DED7),0 0 26px -2px var(--tc,#11DED7);transition:box-shadow .6s}
+.bear img{width:100%;height:100%;display:block;border-radius:50%}
+.bear svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.bear .acc{opacity:0;transition:opacity .5s}.bear .acc.on{opacity:1}
+.bear .drop{animation:drip 1.6s ease-in infinite}
+@keyframes drip{0%{transform:translateY(-3px);opacity:0}30%{opacity:1}100%{transform:translateY(12px);opacity:0}}
+.tinf{min-width:0;flex:1}
+.tnum{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tnum b{font:900 40px/1 "Barlow Condensed";color:var(--tc,#11DED7)}
+.tnum span{font:700 11.5px Barlow;letter-spacing:.4px;opacity:.85}
+.tmsg{font:700 14.5px/1.25 Barlow;margin-top:3px;color:var(--gelo)}
+.tbar{margin-top:9px;height:6px;border-radius:6px;position:relative;background:linear-gradient(90deg,#11DED7,#B3E9DB 30%,#F6F282 62%,#EB2F65)}
+.tbar i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tc,#11DED7);transform:translateX(-50%);transition:left .8s}
+.ope{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:3px 9px;border-radius:99px;font:800 11.5px Barlow;background:rgba(168,224,113,.2);color:#A8E071}
+.ope:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
+.ope.off{background:rgba(235,47,101,.18);color:#FF7A9E}
+.unit.best .ope{background:rgba(70,150,20,.14);color:#3a7a0d}.unit.best .ope.off{background:rgba(235,47,101,.12);color:#C81E52}
+.far{display:flex;flex-direction:column;gap:12px;padding:16px;border-radius:18px;background:rgba(17,222,215,.14);border:1px solid rgba(17,222,215,.5);font:700 15px/1.35 Barlow}
+.far button{align-self:flex-start;padding:10px 16px;border-radius:12px;background:var(--verde);color:var(--ink);font:800 13px Barlow}
 .rv{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
 .rv.vis{opacity:1;transform:none}
 /* ---------- buscador ---------- */
@@ -204,6 +226,21 @@ button{background:none;border:0;cursor:pointer}
   </header>
 
   <section class="sheet">
+    <div class="temp" id="temp" hidden>
+      <div class="bear" id="bear"><img src="img/logo-original.png" alt="Urso da Ice Polar">
+        <svg viewBox="0 0 100 100" aria-hidden="true">
+          <g class="acc" id="a-beanie"><path d="M55 40 Q66 18 80 38 Z" fill="#EB2F65" stroke="#fff" stroke-width="1.5"/><rect x="53" y="38" width="29" height="6" rx="3" fill="#F8F8F8" stroke="#C7D3D5" stroke-width=".8"/><circle cx="67" cy="22" r="4" fill="#F8F8F8"/></g>
+          <g class="acc" id="a-scarf"><path d="M56 63 Q69 70 82 61 L84 68 Q70 77 55 70 Z" fill="#11DED7" stroke="#fff" stroke-width="1.2"/><path d="M60 69 L62 82 L69 80 L67 71 Z" fill="#11DED7" stroke="#fff" stroke-width="1.2"/></g>
+          <g class="acc" id="a-sun"><path d="M59 50 H73 M73 50 H79" stroke="#0B2E30" stroke-width="1.6"/><rect x="59" y="47" width="9" height="7" rx="3" fill="#0B2E30"/><rect x="70" y="47" width="9" height="7" rx="3" fill="#0B2E30"/><path d="M61 49 l3 0" stroke="#fff" stroke-width="1" opacity=".7"/></g>
+          <g class="acc" id="a-sweat"><path class="drop" d="M86 40 q3 5 0 7 q-3 -2 0 -7z" fill="#11DED7"/></g>
+        </svg>
+      </div>
+      <div class="tinf">
+        <div class="tnum"><b id="tdeg">--°</b><span id="tcity">Buscando o clima…</span></div>
+        <div class="tmsg" id="tmsg">Que tal um sorvete?</div>
+        <div class="tbar"><i id="tmark" style="left:50%"></i></div>
+      </div>
+    </div>
     <div class="px">
       <button class="btn b-ifood" data-sheet="ifood">
         <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.4 8.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8z"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
@@ -281,19 +318,19 @@ const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const WA='551631167170';
 /* ====== LOJAS (Google Maps, nov/2026) ====== */
 const UNITS=[
- {n:'Santa Felícia',g:'Sorveteria Ice Polar Santa Felicia',a:'Av. Bruno Ruggiero Filho, 1002',b:'Parque Santa Felícia',c:'São Carlos',ll:[-22.0022892,-47.9200858],
+ {n:'Santa Felícia',h:[[11,23],[11,23],[11,23],[11,23],[11,23],[11,23],[11,23]],g:'Sorveteria Ice Polar Santa Felicia',a:'Av. Bruno Ruggiero Filho, 1002',b:'Parque Santa Felícia',c:'São Carlos',ll:[-22.0022892,-47.9200858],
   ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---santa-felicia-parque-santa-felicia-jardim/e773aa81-d496-4e63-b6e2-da55c9b1c3df',n99:'https://oia.99app.com/dlp9/3SVskr'},
- {n:'Botafogo',g:'Sorveteria Ice Polar - Botafogo',a:'Av. José Pereira Lopes, 1390 B',b:'Jardim Botafogo',c:'São Carlos',ll:[-22.0257747,-47.9116797],
+ {n:'Botafogo',h:[[11,22],[11,22],[11,22],[11,22],[11,22],[11,22],[11,22]],g:'Sorveteria Ice Polar - Botafogo',a:'Av. José Pereira Lopes, 1390 B',b:'Jardim Botafogo',c:'São Carlos',ll:[-22.0257747,-47.9116797],
   ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar-botafogo-jardim-botafogo-1/78208ad0-ab3f-4deb-aae6-3096b8afa403',n99:'https://oia.99app.com/dlp9/fvCWuq'},
- {n:'Vila Nery',g:'Sorveteria Ice Polar Vila Nery',a:'Av. Cap. Luíz Brandão, 321',b:'Vila Nery',c:'São Carlos',ll:[-22.0104272,-47.8712554],
+ {n:'Vila Nery',h:[[13,23],[12,23],[12,23],[12,23],[12,23],[12,23],[12,23]],g:'Sorveteria Ice Polar Vila Nery',a:'Av. Cap. Luíz Brandão, 321',b:'Vila Nery',c:'São Carlos',ll:[-22.0104272,-47.8712554],
   ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---vila-nery-vila-vista-alegre/bdf49873-aa03-4711-95a1-26fee19c9b2f',n99:'https://oia.99app.com/dlp9/2U0Uat'},
- {n:'Larga',g:'Sorveteria Ice Polar - Larga',a:'Av. Dr. Teixeira de Barros, 513',b:'Vila Prado',c:'São Carlos',ll:[-22.0260188,-47.8983359]},
- {n:'Redenção',g:'Sorveteria Ice Polar - Redenção',a:'R. Des. Júlio de Faria, 101',b:'Vila Prado',c:'São Carlos',ll:[-22.0359565,-47.9069521]},
- {n:'Tetra',g:'Sorveteria Ice Polar - Loja Tetra',a:'Av. Tetracampeonato, 1162',b:'Bela Vista São-Carlense',c:'São Carlos',ll:[-22.0554972,-47.915128],
+ {n:'Larga',h:[[11,22],[12,21],[12,21],[11,22],[11,22],[11,22],[11,22]],g:'Sorveteria Ice Polar - Larga',a:'Av. Dr. Teixeira de Barros, 513',b:'Vila Prado',c:'São Carlos',ll:[-22.0260188,-47.8983359]},
+ {n:'Redenção',h:[[11,22],[12,21],[12,21],[11,22],[11,22],[11,22],[11,22]],g:'Sorveteria Ice Polar - Redenção',a:'R. Des. Júlio de Faria, 101',b:'Vila Prado',c:'São Carlos',ll:[-22.0359565,-47.9069521]},
+ {n:'Tetra',h:[[12,22],[12,22],[12,22],[12,22],[12,22],[12,22],[12,22]],g:'Sorveteria Ice Polar - Loja Tetra',a:'Av. Tetracampeonato, 1162',b:'Bela Vista São-Carlense',c:'São Carlos',ll:[-22.0554972,-47.915128],
   ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar-tetra-cidade-aracy/413d9327-a5d0-4119-8a4b-5ded6f5fdd21',n99:'https://oia.99app.com/dlp9/0d6FrO'},
- {n:'Cidade Aracy',g:'Sorveteria Ice Polar - Cidade Aracy',a:'Av. Regit Arab, 35',b:'Cidade Aracy',c:'São Carlos',ll:[-22.0586696,-47.8994791],
+ {n:'Cidade Aracy',h:[[11,23],[11,23],[11,23],[11,23],[11,23],[11,23],[11,23]],g:'Sorveteria Ice Polar - Cidade Aracy',a:'Av. Regit Arab, 35',b:'Cidade Aracy',c:'São Carlos',ll:[-22.0586696,-47.8994791],
   ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---cidade-aracy-cidade-aracy/cdfdc9b3-19f8-44cd-959b-b74cf45b769b'},
- {n:'Golias',g:'Sorveteria Ice Polar - Golias',a:'R. João Jacinto de Oliveira, 280',b:'Cidade Aracy II',c:'São Carlos',ll:[-22.0570605,-47.906957]},
+ {n:'Golias',h:[[14,22],[14,22],[14,22],[14,22],[14,22],[14,22],[14,22]],g:'Sorveteria Ice Polar - Golias',a:'R. João Jacinto de Oliveira, 280',b:'Cidade Aracy II',c:'São Carlos',ll:[-22.0570605,-47.906957]},
  {n:'Antenor Garcia',g:'Sorveteria Ice Polar - Antenor',a:'R. Jayme Bruno, 1034',b:'Antenor Garcia',c:'São Carlos',ll:[-22.0532691,-47.9192711]},
  {n:'Itirapina',g:'Sorveteria Ice Polar - Itirapina',a:'R. 05, 444',b:'Centro',c:'Itirapina',ll:[-22.2539733,-47.8213389]}
 ];
@@ -308,6 +345,12 @@ const PRODS=[
  {id:'potes',n:'Potes pra levar',d:'Sabores da fábrica pra curtir em casa, com edições especiais.',img:'img/cat-potes.webp',bd:'PRA CASA',bc:'#A8E071'},
 ];
 let me=null;
+const f2=x=>{const h=Math.floor(x),m=Math.round((x-h)*60);return h+'h'+(m?String(m).padStart(2,'0'):'')};
+function spNow(){const p=new Intl.DateTimeFormat('en-US',{timeZone:'America/Sao_Paulo',weekday:'short',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).formatToParts(new Date()),g=t=>p.find(x=>x.type===t).value;return {d:['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].indexOf(g('weekday')),m:+g('hour')+ +g('minute')/60}}
+function openInfo(u){if(!u.h)return '';const {d,m}=spNow(),t=u.h[d];
+ if(m>=t[0]&&m<t[1])return `<span class="ope">Aberto agora · fecha às ${f2(t[1])}</span>`;
+ if(m<t[0])return `<span class="ope off">Fechado · abre hoje às ${f2(t[0])}</span>`;
+ return `<span class="ope off">Fechado · abre amanhã às ${f2(u.h[(d+1)%7][0])}</span>`}
 const km=(a,b)=>{const R=6371,t=Math.PI/180,x=(b[0]-a[0])*t,y=(b[1]-a[1])*t,h=Math.sin(x/2)**2+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(h))*1.25};
 const fkm=d=>d<1?Math.max(50,Math.round(d*1000/50)*50)+' m':(d<10?d.toFixed(1).replace('.',','):Math.round(d))+' km';
 const addr=u=>`${u.a} - ${u.b}, ${u.c} - SP`;
@@ -331,12 +374,16 @@ const input=$('#addr'),sugg=$('#sugg'),res=$('#res'),hint=$('#hint');
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
 function label(f){const p=f.properties;return {t:[p.street||p.name,p.housenumber].filter(Boolean).join(', ')||p.name,s:[p.district||p.locality,p.city].filter(Boolean).join(' · ')}}
 async function geocode(q,limit=5){
- const query=/s[aã]o carlos|itirapina/i.test(q)?q:q+', São Carlos SP';
- try{const r=await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&lat=${SC[0]}&lon=${SC[1]}&limit=${limit}&lang=default`);const j=await r.json();
-  const f=(j.features||[]).filter(x=>{const c=x.geometry.coordinates;return km([c[1],c[0]],SC)<70});if(f.length)return f}catch(e){}
- try{const r=await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=br&limit=${limit}&viewbox=-48.1,-21.85,-47.7,-22.35&bounded=1&q=${encodeURIComponent(query)}`);const j=await r.json();
-  return j.map(x=>({geometry:{coordinates:[+x.lon,+x.lat]},properties:{name:x.display_name.split(',')[0],street:'',city:'',district:x.display_name.split(',').slice(1,3).join(',')}}))}catch(e){}
- return null}
+ const near=f=>f.filter(x=>{const c=x.geometry.coordinates;return km([c[1],c[0]],SC)<70});
+ const tryq=async query=>{
+  try{const r=await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&lat=${SC[0]}&lon=${SC[1]}&limit=${limit+3}&lang=default`);const j=await r.json();const f=(j.features||[]).filter(x=>x.geometry&&x.geometry.coordinates);if(f.length)return f}catch(e){}
+  try{const r=await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=br&limit=${limit+3}&q=${encodeURIComponent(query)}`);const j=await r.json();
+   if(j.length)return j.map(x=>({geometry:{coordinates:[+x.lon,+x.lat]},properties:{name:x.display_name.split(',')[0],street:'',city:'',district:x.display_name.split(',').slice(1,3).join(',')}}))}catch(e){}
+  return null};
+ let f=await tryq(q);
+ if(f){const n=near(f);if(n.length)return n.slice(0,limit)}
+ if(!/s[aã]o carlos|itirapina/i.test(q)){const g=await tryq(q+', São Carlos SP');if(g){const n=near(g);if(n.length)return n.slice(0,limit)}}
+ return f?f.slice(0,limit):null}
 let tmr=null,seq=0;
 input.addEventListener('input',()=>{clearTimeout(tmr);const q=input.value.trim();if(q.length<4){sugg.hidden=true;return}
  tmr=setTimeout(async()=>{const my=++seq;const f=await geocode(q);if(my!==seq)return;sugg.innerHTML='';if(!f||!f.length){sugg.hidden=true;return}
@@ -349,12 +396,30 @@ $('#sf').addEventListener('submit',async e=>{e.preventDefault();sugg.hidden=true
  hint.textContent='';res.innerHTML='<div class="msg">Não achamos esse endereço. Tente com rua, número e bairro, ou toque no alvo para usar sua localização.</div>';res.classList.add('show')});
 $('#gps').onclick=()=>{if(!navigator.geolocation){hint.textContent='Seu aparelho não liberou a localização. Digite o endereço.';return}
  hint.textContent='Procurando você…';navigator.geolocation.getCurrentPosition(p=>found([p.coords.latitude,p.coords.longitude],'sua localização'),()=>{hint.textContent='Sem permissão de localização. Digite seu endereço acima.'},{enableHighAccuracy:true,timeout:9000,maximumAge:60000})};
-function unitHTML(u,best){return `<div class="unit${best?' best':''}"><div class="hd"><div>${best?'<span class="tag">MAIS PERTO DE VOCÊ</span>':''}<b>Ice Polar ${u.n}</b><small>${u.a} · ${u.b}${u.c!=='São Carlos'?' · '+u.c:''}</small></div>${u.d!=null?`<span class="km">${fkm(u.d)}</span>`:''}</div>
+function unitHTML(u,best){return `<div class="unit${best?' best':''}"><div class="hd"><div>${best?'<span class="tag">MAIS PERTO DE VOCÊ</span>':''}<b>Ice Polar ${u.n}</b><small>${u.a} · ${u.b}${u.c!=='São Carlos'?' · '+u.c:''}</small>${openInfo(u)}</div>${u.d!=null?`<span class="km">${fkm(u.d)}</span>`:''}</div>
 <div class="acts"><a class="a-map" href="${gmaps(u)}" target="_blank" rel="noopener">Ver rota</a><a class="a-wz" href="${waze(u)}" target="_blank" rel="noopener">Waze</a>${u.ifood?`<a class="a-if" href="${u.ifood}" target="_blank" rel="noopener">iFood</a>`:''}</div></div>`}
-function found(ll,from){me=ll;const L=sorted(UNITS);const u=L[0];hint.textContent='';
+function found(ll,from){me=ll;const L=sorted(UNITS);const u=L[0];hint.textContent='';wx(ll,from==='sua localização'?'onde você está':'perto de '+from);
+ if(u.d>45){res.innerHTML=`<p class="from">A partir de <b>${from}</b></p><div class="far"><span>Desculpe, não atendemos a sua região ainda, mas você pode vir até São Carlos nos conhecer :)</span><button type="button" id="farall">Ver as lojas de São Carlos</button></div>`;res.classList.remove('show');void res.offsetWidth;res.classList.add('show');$('#farall').onclick=()=>{me=null;$('#all').click()};vib(12);return}
  res.innerHTML=`<p class="from">A partir de <b>${from}</b></p><div class="mapb"><iframe loading="lazy" title="Mapa Ice Polar ${u.n}" src="https://www.google.com/maps?q=${encodeURIComponent(u.g+', '+addr(u))}&z=15&output=embed"></iframe><span class="pinb">ICE POLAR ${u.n.toUpperCase()}</span></div>${unitHTML(u,true)}<div class="more">${L.slice(1,3).map(x=>unitHTML(x,false)).join('')}</div>`;
  res.classList.remove('show');void res.offsetWidth;res.classList.add('show');vib(12);setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'nearest'}),150)}
 $('#all').onclick=()=>{const L=sorted(UNITS);res.innerHTML=L.map((u,i)=>unitHTML(u,me&&i===0)).join('');res.classList.remove('show');void res.offsetWidth;res.classList.add('show')};
+
+/* ====== termômetro ====== */
+const TIERS=[
+ {max:12,c:'#11DED7',a:['beanie','scarf'],m:'Friozinho bom para comer uma sobremesa com calda'},
+ {max:18,c:'#82C5B7',a:['scarf'],m:'Tempo fresquinho pede um petit gâteau com sorvete'},
+ {max:24,c:'#A8E071',a:[],m:'Tempo bom demais pra um sorvete artesanal'},
+ {max:29,c:'#F6F282',a:['sun'],m:'Esquentou! Hora de um picolé geladinho'},
+ {max:99,c:'#EB2F65',a:['sun','sweat'],m:'Nesse calor, a única coisa que refresca é um sorvete'}];
+let wseq=0;
+function showTemp(t,place){const T=TIERS.find(x=>t<=x.max);const box=$('#temp');box.hidden=false;box.style.setProperty('--tc',T.c);
+ $('#tdeg').textContent=Math.round(t)+'°';$('#tcity').textContent=!place?'agora na sua região':/^(onde|perto)/.test(place)?'agora '+place:'agora em '+place;$('#tmsg').textContent=T.m;
+ ['beanie','scarf','sun','sweat'].forEach(k=>$('#a-'+k).classList.toggle('on',T.a.includes(k)));
+ $('#tmark').style.left=Math.max(4,Math.min(96,(t-5)/(38-5)*100))+'%'}
+async function wx(ll,place){const my=++wseq;try{const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${ll[0].toFixed(3)}&longitude=${ll[1].toFixed(3)}&current=temperature_2m&timezone=auto`);const j=await r.json();if(my!==wseq)return;const t=j.current&&j.current.temperature_2m;if(typeof t==='number')showTemp(t,place)}catch(e){}}
+(async()=>{let ll=SC,place='São Carlos';
+ try{const r=await fetch('https://ipwho.is/');const j=await r.json();if(j&&j.success&&typeof j.latitude==='number'){ll=[j.latitude,j.longitude];place=j.city||''}}catch(e){}
+ wx(ll,place)})();
 
 /* cardápio */
 const car=$('#car'),dots=$('#dots');
