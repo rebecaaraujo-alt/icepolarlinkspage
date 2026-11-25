@@ -344,6 +344,13 @@ body{font-family:Nunito,system-ui,sans-serif}
 .b-ice[data-sheet=festa] .ic{background:#EB2F65}
 .b-ice[data-sheet=festa] .ic svg{stroke:#fff}
 @media (min-width:960px){.h{font-size:60px}.sub{font-size:18px;max-width:420px}}
+
+/* hero enxuta + título do delivery */
+.sub{font:800 17px/1.35 Nunito;max-width:300px;margin-top:12px;opacity:.9}
+.dl-h{padding-top:10px}
+.dl-h .tt{padding-bottom:12px}
+.tt-s{font-size:26px!important}
+@media (min-width:960px){.sub{font-size:21px;max-width:440px}}
 </style>
 </head>
 <body>
@@ -357,12 +364,12 @@ body{font-family:Nunito,system-ui,sans-serif}
     <div class="htxt">
       <div class="kick w" style="animation-delay:.4s"><i></i>FEITO NA NOSSA FÁBRICA</div>
       <h1 class="h" id="ht">Sorvete artesanal<br>de <em>verdade.</em></h1>
-      <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser. Ache a loja mais perto ou peça agora no iFood.</p>
+      <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser.</p>
     </div>
   </header>
 
   <section class="sheet">
-    <div class="temp" id="temp" hidden>
+    <div class="temp" id="temp" style="--tc:#B3E9DB">
       <div class="bear" id="bear" role="img" aria-label="Urso polar da Ice Polar">
         <svg viewBox="0 0 100 100" aria-hidden="true">
 <defs><g id="bsh"><ellipse cx="50" cy="90" rx="31" ry="25"/><circle cx="23" cy="83" r="9"/><circle cx="77" cy="83" r="9"/><circle cx="26" cy="27" r="10"/><circle cx="74" cy="27" r="10"/><ellipse cx="50" cy="50" rx="32" ry="27"/></g></defs>
@@ -385,10 +392,11 @@ body{font-family:Nunito,system-ui,sans-serif}
 </svg>
       </div>
       <div class="tinf">
-        <div class="tnum"><b id="tdeg">--°</b><span id="tcity">Buscando o clima…</span></div>
-        <div class="tmsg" id="tmsg">Que tal um sorvete?</div>
+        <div class="tnum"><b id="tdeg">🍦</b><span id="tcity">sempre na estação certa</span></div>
+        <div class="tmsg" id="tmsg">Que tal um sorvete artesanal hoje?</div>
       </div>
     </div>
+    <div class="dl-h"><div class="lab">DELIVERY</div><h2 class="tt tt-s">Peça <em>sem sair de casa</em></h2></div>
     <div class="px">
       <button class="btn b-ifood" data-sheet="ifood">
         <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.4 8.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8z"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
