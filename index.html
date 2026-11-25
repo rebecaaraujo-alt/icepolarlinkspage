@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Ice Polar Sorvetes · Links</title>
 <meta name="description" content="Sorvete artesanal feito na nossa fábrica. Encontre a Ice Polar mais perto de você ou peça no iFood.">
-<meta name="theme-color" content="#11DED7">
+<meta name="theme-color" content="#5CE8E2">
 <meta property="og:title" content="Ice Polar · Sorvete artesanal de verdade">
 <meta property="og:description" content="Encontre a loja mais perto ou peça no iFood.">
 <link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
@@ -214,9 +214,9 @@ button{background:none;border:0;cursor:pointer}
 
 /* ===== TEMA FLAT: só rosa e turquesa da marca, sem degradê ===== */
 :root{--soft:rgba(11,46,48,.72);--edge:transparent}
-html,body{background:#11DED7;color:#0B2E30}
+html,body{background:#5CE8E2;color:#0B2E30}
 body{font-family:Nunito,system-ui,sans-serif}
-.bg{background:#11DED7}.bg i,.bg:before,.bg:after{display:none}
+.bg{background:#5CE8E2}.bg i,.bg:before,.bg:after{display:none}
 .flake{text-shadow:none}
 .brand img{box-shadow:0 0 0 3px #F8F8F8}
 .kick{color:#0B2E30;text-shadow:none;opacity:1}
@@ -285,7 +285,7 @@ body{font-family:Nunito,system-ui,sans-serif}
 .drip{position:absolute;top:0;left:0;width:100%;height:52px;fill:#EB2F65;z-index:3;pointer-events:none}
 .drip.d{display:none}
 .hero{padding-top:calc(60px + env(safe-area-inset-top))}
-.bg i{display:block;filter:none;mix-blend-mode:normal;border-radius:50%;opacity:1;animation:none;will-change:transform}
+.bg i{display:none;filter:none;mix-blend-mode:normal;border-radius:50%;opacity:1;animation:none;will-change:transform}
 .bg i:nth-child(1){width:46vmax;height:46vmax;left:-14vmax;top:46vh;background:#DF8CBA;opacity:.85;animation:ib1 22s ease-in-out infinite alternate}
 .bg i:nth-child(2){width:58vmax;height:58vmax;right:-26vmax;top:30vh;background:#F8F8F8;opacity:.6;animation:ib2 26s ease-in-out infinite alternate}
 .bg i:nth-child(3){width:52vmax;height:52vmax;left:10vw;bottom:-26vmax;background:#B3E9DB;animation:ib3 30s ease-in-out infinite alternate}
@@ -478,7 +478,7 @@ function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 (()=>{const h=$('#ht');let d=.5;h.innerHTML=h.innerHTML.split(/(<br>|<em>|<\/em>)/).map(p=>/^</.test(p)?p:(/^\s/.test(p)?' ':'')+p.split(' ').filter(Boolean).map(w=>`<span class="w" style="animation-delay:${(d+=.13).toFixed(2)}s">${w}</span>`).join(' ')+(/\s$/.test(p)?' ':'')).join('');})();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.08});$$('.rv').forEach(el=>io.observe(el));
 /* neve */
-if(!reduce){const sn=$('#snow');const N=innerWidth>700?34:22;for(let i=0;i<N;i++){const f=document.createElement('span');f.className='flake';f.textContent=Math.random()<.5?'❄':'•';const s=8+Math.random()*14;const du=9+Math.random()*12;f.style.cssText=`left:${Math.random()*100}%;font-size:${s}px;opacity:${(.45+Math.random()*.5).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*80-40).toFixed(0)}px`;sn.appendChild(f)}}
+if(!reduce){const sn=$('#snow');const N=innerWidth>700?22:14;for(let i=0;i<N;i++){const f=document.createElement('span');f.className='flake';f.textContent='❄';const s=20+Math.random()*24;const du=9+Math.random()*12;f.style.cssText=`left:${Math.random()*100}%;font-size:${s}px;opacity:${(.45+Math.random()*.5).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*80-40).toFixed(0)}px`;sn.appendChild(f)}}
 /* granulado nas cores da paleta */
 const SPR=['#EB2F65','#F8F8F8','#F6F282','#DF8CBA'];
 function sprinkle(x,y,n=12){if(reduce)return;for(let i=0;i<n;i++){const s=document.createElement('span');s.className='spr';const a=Math.random()*Math.PI*2,r=26+Math.random()*46;s.style.cssText=`left:${x}px;top:${y}px;background:${SPR[i%SPR.length]};--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px;--r:${Math.random()*180}deg`;document.body.appendChild(s);setTimeout(()=>s.remove(),950)}}
