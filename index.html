@@ -234,28 +234,23 @@ button{background:none;border:0;cursor:pointer}
     <div class="temp" id="temp" hidden>
       <div class="bear" id="bear" role="img" aria-label="Urso polar da Ice Polar">
         <svg viewBox="0 0 100 100" aria-hidden="true">
-          <ellipse cx="47" cy="90" rx="36" ry="3.4" fill="#0B2E30" opacity=".18"/>
-          <g stroke="#86B5B7" stroke-width="1.6" stroke-linejoin="round">
-            <rect x="21" y="68" width="13" height="21" rx="6.5" fill="#E9F3F4"/>
-            <rect x="52" y="68" width="13" height="21" rx="6.5" fill="#E9F3F4"/>
-            <ellipse cx="45" cy="63" rx="31" ry="21" fill="#FFFFFF"/>
-            <rect x="14" y="70" width="14" height="20" rx="7" fill="#FFFFFF"/>
-            <rect x="43" y="70" width="14" height="20" rx="7" fill="#FFFFFF"/>
-            <circle cx="14" cy="57" r="4.5" fill="#FFFFFF"/>
-            <circle cx="66" cy="40" r="6" fill="#FFFFFF"/>
-            <circle cx="72" cy="52" r="16" fill="#FFFFFF"/>
-            <ellipse cx="85" cy="58" rx="10" ry="7.5" fill="#FFFFFF"/>
+          <defs><g id="bsh"><ellipse cx="36" cy="66" rx="27" ry="19"/><rect x="14" y="70" width="14" height="18" rx="7"/><rect x="48" y="70" width="14" height="18" rx="7"/><circle cx="11" cy="58" r="5"/><circle cx="58" cy="30" r="7.5"/><circle cx="66" cy="48" r="18"/><ellipse cx="82" cy="55" rx="10.5" ry="8.5"/></g></defs>
+          <g transform="translate(7,10) scale(.84)">
+          <ellipse cx="42" cy="90" rx="36" ry="3.5" fill="#0B2E30" opacity=".16"/>
+          <use href="#bsh" fill="#7DB3B8" stroke="#7DB3B8" stroke-width="3.6" stroke-linejoin="round"/>
+          <use href="#bsh" fill="#fff"/>
+          <ellipse cx="36" cy="75" rx="24" ry="9" fill="#E6F1F3" opacity=".9"/>
+          <rect x="14" y="80" width="14" height="8" rx="4" fill="#E6F1F3"/><rect x="48" y="80" width="14" height="8" rx="4" fill="#E6F1F3"/>
+          <circle cx="58" cy="30" r="4" fill="#DF8CBA"/>
+          <ellipse cx="90.5" cy="51" rx="4" ry="3.2" fill="#0B2E30"/><ellipse cx="89.6" cy="49.9" rx="1.2" ry=".7" fill="#fff" opacity=".7"/>
+          <path d="M91 54v3.5M91 57.5q-3.5 3.2-8 .5" fill="none" stroke="#0B2E30" stroke-width="1.8" stroke-linecap="round"/>
+          <ellipse cx="73" cy="57" rx="4.2" ry="3" fill="#DF8CBA" opacity=".6"/>
+          <circle cx="75" cy="45" r="4.2" fill="#0B2E30"/><circle cx="76.4" cy="43.4" r="1.6" fill="#fff"/><circle cx="73.8" cy="46.6" r=".8" fill="#fff"/>
+          <g class="acc" id="a-sun"><path d="M67 44L58 40" stroke="#0B2E30" stroke-width="2.2" stroke-linecap="round"/><ellipse cx="75" cy="45" rx="8.5" ry="6.4" fill="#0B2E30"/><path d="M70 42.5l5-.6" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".6"/></g>
+          <g class="acc" id="a-beanie" transform="translate(1,-5)"><path d="M49 40Q47 13 67 13Q87 15 85 40Z" fill="#EB2F65"/><rect x="46" y="36" width="41" height="9" rx="4.5" fill="#F8F8F8" stroke="#7DB3B8" stroke-width="1.2"/><circle cx="67" cy="12" r="5.5" fill="#F8F8F8" stroke="#7DB3B8" stroke-width="1.2"/></g>
+          <g class="acc" id="a-scarf"><path d="M46 58Q58 70 74 62L77 72Q58 83 44 70Z" fill="#11DED7"/><path d="M50 73L47 89L57 90L61 76Z" fill="#11DED7"/><path d="M48 82h9M47.5 86h9" stroke="#F8F8F8" stroke-width="2"/></g>
+          <g class="acc" id="a-sweat"><path class="drop" d="M90 30q5 8 0 11q-5-3 0-11z" fill="#11DED7"/></g>
           </g>
-          <ellipse cx="70" cy="58" rx="9" ry="9" fill="#FFFFFF"/>
-          <circle cx="66" cy="40" r="3" fill="#DF8CBA"/>
-                    <ellipse cx="92" cy="55" rx="3.4" ry="2.8" fill="#0B2E30"/>
-          <path d="M86 63q3.5 3 7.5 0" fill="none" stroke="#0B2E30" stroke-width="1.6" stroke-linecap="round"/>
-          <circle cx="77" cy="63" r="3.6" fill="#DF8CBA" opacity=".6"/>
-          <circle cx="78" cy="49" r="3.3" fill="#0B2E30"/><circle cx="79.2" cy="47.8" r="1.2" fill="#fff"/>
-          <g class="acc" id="a-sun"><path d="M71 49L64 46" stroke="#0B2E30" stroke-width="2" stroke-linecap="round"/><ellipse cx="78" cy="49" rx="7.5" ry="5.6" fill="#0B2E30"/><path d="M74 46.5l4-.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></g>
-          <g class="acc" id="a-beanie"><path d="M57 46Q56 24 73 24Q89 25 88 46Z" fill="#EB2F65" stroke="#fff" stroke-width="1"/><rect x="55" y="42" width="35" height="8" rx="4" fill="#F8F8F8" stroke="#86B5B7" stroke-width="1"/><circle cx="73" cy="23" r="5" fill="#F8F8F8" stroke="#86B5B7" stroke-width="1"/></g>
-          <g class="acc" id="a-scarf"><path d="M56 60Q66 70 80 63L82 71Q66 80 55 69Z" fill="#11DED7"/><path d="M58 71L55 88L63 89L66 74Z" fill="#11DED7"/><path d="M56 80h8M55.5 84h8" stroke="#F8F8F8" stroke-width="2"/></g>
-          <g class="acc" id="a-sweat"><path class="drop" d="M90 36q5 8 0 11q-5-3 0-11z" fill="#11DED7"/></g>
         </svg>
       </div>
       <div class="tinf">
