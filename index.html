@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Ice Polar Sorvetes · Links</title>
+<meta name="description" content="Sorvete artesanal feito na nossa fábrica. Encontre a Ice Polar mais perto de você ou peça no iFood.">
+<meta name="theme-color" content="#0B2E30">
+<meta property="og:title" content="Ice Polar · Sorvete artesanal de verdade">
+<meta property="og:description" content="Encontre a loja mais perto ou peça no iFood.">
+<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32.png">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* Paleta Ice Polar */
+:root{--verde:#A8E071;--turq:#11DED7;--rosa:#EB2F65;--amar:#F6F282;--limao:#D7E17D;--lilas:#DF8CBA;--cinza:#C7D3D5;--agua:#82C5B7;--menta:#B3E9DB;--gelo:#F8F8F8;
+--ink:#0B2E30;--glass:rgba(248,248,248,.13);--glass2:rgba(248,248,248,.2);--edge:rgba(248,248,248,.38);--soft:rgba(248,248,248,.78)}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html{background:var(--ink)}
+body{font-family:Barlow,system-ui,sans-serif;color:var(--gelo);background:var(--ink);min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button,input{font:inherit;color:inherit}
+button{background:none;border:0;cursor:pointer}
+/* ---------- fundo animado: aurora de gelo nas cores da marca ---------- */
+.bg{position:fixed;inset:0;z-index:0;overflow:hidden;background:radial-gradient(120% 80% at 50% 0%,#0f4a4c 0%,#0B2E30 55%,#071d1f 100%)}
+.bg i{position:absolute;display:block;border-radius:50%;filter:blur(70px);opacity:.55;will-change:transform;mix-blend-mode:screen}
+.bg i:nth-child(1){width:70vmax;height:70vmax;left:-25vmax;top:-20vmax;background:#11DED7;animation:b1 19s ease-in-out infinite alternate}
+.bg i:nth-child(2){width:60vmax;height:60vmax;right:-22vmax;top:8vh;background:#A8E071;opacity:.38;animation:b2 23s ease-in-out infinite alternate}
+.bg i:nth-child(3){width:55vmax;height:55vmax;left:-10vmax;bottom:-25vmax;background:#EB2F65;opacity:.16;animation:b3 27s ease-in-out infinite alternate}
+.bg i:nth-child(4){width:42vmax;height:42vmax;right:5vmax;bottom:-12vmax;background:#DF8CBA;opacity:.12;animation:b4 21s ease-in-out infinite alternate}
+@keyframes b1{to{transform:translate(22vmax,14vmax) scale(1.15)}}
+@keyframes b2{to{transform:translate(-20vmax,18vmax) scale(.9)}}
+@keyframes b3{to{transform:translate(24vmax,-16vmax) scale(1.2)}}
+@keyframes b4{to{transform:translate(-18vmax,-20vmax) scale(1.1)}}
+.bg:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,29,31,.25) 0%,rgba(7,29,31,0) 30%,rgba(7,29,31,.55) 62%,rgba(7,29,31,.78) 100%)}
+.bg:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 40%,rgba(248,248,248,.10) 50%,transparent 60%);background-size:250% 100%;animation:shine 9s linear infinite}
+@keyframes shine{from{background-position:130% 0}to{background-position:-130% 0}}
+@media (prefers-reduced-motion:reduce){.bg i,.bg:before{animation:none}}
+.snow{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.flake{position:absolute;top:-20px;color:#fff;text-shadow:0 0 8px rgba(17,222,215,.55);animation:fall linear infinite;will-change:transform}
+@keyframes fall{to{transform:translate3d(var(--dx,20px),calc(100vh + 40px),0) rotate(220deg)}}
+.wrap{position:relative;z-index:2;max-width:480px;margin:0 auto}
+/* ---------- hero ---------- */
+.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:calc(22px + env(safe-area-inset-top)) 22px 22px}
+.brand{display:flex;flex-direction:column;align-items:center;gap:9px;animation:in .8s .1s both}
+.brand img{width:64px;height:64px;border-radius:50%;box-shadow:0 0 0 3px rgba(248,248,248,.55),0 8px 20px rgba(0,0,0,.3)}
+.brand span{font:800 12px Barlow;letter-spacing:2.4px;color:var(--gelo);text-shadow:0 1px 10px rgba(0,0,0,.45)}
+.htxt{margin-top:20px;display:flex;flex-direction:column;align-items:center}
+.kick{font:800 12px Barlow;letter-spacing:2.6px;color:var(--gelo);opacity:.92;text-shadow:0 1px 12px rgba(0,0,0,.6);margin-bottom:8px}
+.h{font:900 clamp(52px,15vw,66px)/.86 "Barlow Condensed";text-transform:uppercase;color:var(--gelo);text-shadow:0 4px 30px rgba(0,0,0,.45)}
+.h em{font-style:normal;color:var(--verde)}
+.sub{font:700 15.5px/1.45 Barlow;color:var(--gelo);text-shadow:0 1px 14px rgba(0,0,0,.6);margin-top:12px;max-width:320px}
+.sub{text-wrap:balance}
+.w{display:inline-block;opacity:0;transform:translateY(14px);filter:blur(8px);animation:in .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes in{from{opacity:0;transform:translateY(14px);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+/* ---------- vidro / gelo ---------- */
+.ice{position:relative;background:linear-gradient(155deg,rgba(248,248,248,.2) 0%,rgba(179,233,219,.1) 45%,rgba(248,248,248,.08) 100%);backdrop-filter:blur(22px) saturate(1.5);-webkit-backdrop-filter:blur(22px) saturate(1.5);border:1px solid var(--edge);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -1px 0 rgba(255,255,255,.08),0 24px 50px -24px rgba(0,0,0,.6);overflow:hidden}
+.ice:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,rgba(255,255,255,.28) 0%,rgba(255,255,255,0) 32%),radial-gradient(140% 60% at 100% 0%,rgba(17,222,215,.16),transparent 60%);mix-blend-mode:screen}
+.ice>*{position:relative}
+.sheet{padding:6px 0 calc(34px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:0}
+.px{padding:0 16px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.btn{display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;gap:12px;padding:14px;border-radius:22px;position:relative;overflow:hidden;width:100%;text-align:left;transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.btn:active{transform:scale(.97)}
+.btn .ic{width:42px;height:42px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none}
+.btn .t{font:800 20px/1 "Barlow Condensed";text-transform:uppercase;letter-spacing:.3px}
+.btn .s{display:block;font-size:11.5px;line-height:1.3;font-weight:600;opacity:.9;margin-top:4px}
+.btn .ar{position:absolute;right:14px;top:14px;font-size:18px;font-weight:800;transition:transform .3s}
+.btn:hover .ar{transform:translateX(4px)}
+.b-ifood{background:linear-gradient(135deg,#F2557F 0%,#EB2F65 50%,#C81E52 100%);color:#fff;box-shadow:0 18px 34px -14px rgba(235,47,101,.8),inset 0 1px 0 rgba(255,255,255,.4)}
+.b-ifood .ic{background:rgba(255,255,255,.2)}
+.b-ifood:after{content:"";position:absolute;top:0;bottom:0;left:-30%;width:60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:shine 4s 2s ease-in-out infinite}
+@keyframes shine{0%,70%{left:-30%}100%{left:130%}}
+.b-ice{margin-top:0;border-radius:22px;color:var(--gelo)}
+.b-ice .ic{background:rgba(248,248,248,.16);border:1px solid rgba(248,248,248,.35)}
+.b-99 .ic{background:var(--amar);border:0;color:var(--ink);font:900 17px "Barlow Condensed"}
+.sec{padding-top:38px}
+.lab{font:800 12px Barlow;letter-spacing:2.6px;color:var(--rosa);padding:0 22px;text-shadow:0 1px 10px rgba(0,0,0,.4)}
+.tt{font:900 34px/.95 "Barlow Condensed";text-transform:uppercase;color:var(--rosa);padding:6px 22px 14px;text-shadow:0 2px 18px rgba(0,0,0,.55)}
+.tt em{font-style:normal;color:var(--gelo)}
+.rv{opacity:0;transform:translateY(30px);transition:all .9s cubic-bezier(.2,.8,.2,1)}
+.rv.vis{opacity:1;transform:none}
+/* ---------- buscador ---------- */
+.near{margin:0 16px;padding:16px;border-radius:26px}
+.search{display:flex;align-items:center;gap:8px;padding:6px 6px 6px 14px;border-radius:18px;background:rgba(248,248,248,.92);border:1px solid #fff;color:var(--ink);box-shadow:0 10px 26px -14px rgba(0,0,0,.6)}
+.search:focus-within{box-shadow:0 0 0 4px rgba(17,222,215,.35),0 10px 26px -14px rgba(0,0,0,.6)}
+.search input{flex:1;min-width:0;border:0;outline:0;background:transparent;font:600 16px Barlow;color:var(--ink)}
+.search input::placeholder{color:#5f7b7a}
+.search .go{height:44px;padding:0 16px;border-radius:13px;background:var(--ink);color:var(--gelo);font:800 13.5px Barlow;flex:none}
+.search .gps{width:44px;height:44px;border-radius:13px;background:var(--menta);display:flex;align-items:center;justify-content:center;flex:none}
+.hint{font-size:12px;font-weight:600;color:var(--soft);margin:10px 4px 0}
+.sugg[hidden]{display:none}
+.sugg{margin-top:8px;border-radius:16px;overflow:hidden;background:rgba(248,248,248,.95);color:var(--ink)}
+.sugg button{display:block;width:100%;text-align:left;padding:12px 14px;font:600 14px Barlow;border-top:1px solid #e3ecea}
+.sugg button:first-child{border-top:0}
+.sugg button small{display:block;font-size:11.5px;color:#5f7b7a}
+.res{display:none;margin-top:14px;flex-direction:column;gap:10px}
+.res.show{display:flex;animation:in .6s forwards}
+.mapb{position:relative;height:220px;border-radius:18px;overflow:hidden;border:1px solid var(--edge);background:rgba(11,46,48,.4)}
+.mapb iframe{position:absolute;inset:-40px 0 0;width:100%;height:calc(100% + 80px);border:0}
+.mapb .pinb{position:absolute;left:10px;top:10px;padding:6px 10px;border-radius:999px;background:rgba(248,248,248,.95);font:800 10.5px Barlow;letter-spacing:.6px;color:var(--rosa)}
+.from{font-size:12px;font-weight:600;color:var(--soft)}
+.from b{color:var(--gelo)}
+.unit{display:flex;flex-direction:column;gap:10px;padding:14px;border-radius:18px;background:rgba(248,248,248,.1);border:1px solid rgba(248,248,248,.25)}
+.unit.best{background:rgba(248,248,248,.95);color:var(--ink);border-color:#fff}
+.unit .hd{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.unit b{display:block;font:800 20px/1.05 "Barlow Condensed";text-transform:uppercase}
+.unit small{display:block;font-size:12.5px;font-weight:600;opacity:.8;margin-top:3px}
+.unit .km{flex:none;padding:5px 9px;border-radius:9px;background:rgba(17,222,215,.2);color:var(--turq);font:800 12px Barlow;white-space:nowrap}
+.unit.best .km{background:var(--menta);color:var(--ink)}
+.unit .tag{display:inline-block;margin-bottom:6px;padding:3px 8px;border-radius:6px;background:var(--verde);color:var(--ink);font:800 10px Barlow;letter-spacing:1px}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+.acts a{flex:1;min-width:84px;display:flex;align-items:center;justify-content:center;padding:10px 8px;border-radius:12px;font:800 12.5px Barlow;white-space:nowrap}
+.a-map{background:var(--ink);color:var(--gelo)}.a-wz{background:rgba(17,222,215,.22);color:inherit}.a-if{background:var(--rosa);color:#fff}
+.unit:not(.best) .a-map{background:rgba(248,248,248,.92);color:var(--ink)}
+.more{display:flex;flex-direction:column;gap:8px}
+.allbtn{margin:12px auto 0;display:block;font:800 13px Barlow;color:var(--gelo);text-decoration:underline;text-underline-offset:3px}
+.msg{padding:12px 14px;border-radius:14px;background:rgba(235,47,101,.2);border:1px solid rgba(235,47,101,.5);font-size:13px;font-weight:600}
+/* ---------- cardápio ---------- */
+.car{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding:6px 22px 14px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.car::-webkit-scrollbar{display:none}
+.card{flex:none;width:66%;max-width:240px;scroll-snap-align:center;border-radius:26px;display:flex;flex-direction:column;transition:transform .25s,opacity .25s}
+.card .im{position:relative;height:250px;overflow:hidden;border-radius:20px;margin:8px 8px 0}
+.card .im img,.card .im video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.card:hover .im video{transform:scale(1.05)}
+.card .bd{position:absolute;left:10px;top:10px;padding:4px 8px;border-radius:7px;font:800 10px Barlow;letter-spacing:.8px;color:var(--ink)}
+.card .tx{padding:12px 14px 14px;display:flex;flex-direction:column;gap:6px;flex:1}
+.card .nm{font:900 23px/1 "Barlow Condensed";text-transform:uppercase}
+.card .ds{font-size:12.5px;font-weight:600;color:var(--soft);line-height:1.35;flex:1}
+.card .ask{margin-top:6px;padding:10px;border-radius:12px;background:var(--rosa);color:#fff;font:800 13px Barlow}
+.dots{display:flex;justify-content:center;gap:6px}
+.dots span{width:6px;height:6px;border-radius:3px;background:rgba(248,248,248,.4);transition:all .25s}
+.dots span.on{width:22px;background:var(--turq)}
+/* ---------- sugestão ---------- */
+.quiz{margin:0 16px;padding:18px;border-radius:26px}
+.quiz .q{font:700 13px Barlow;color:var(--soft);margin-bottom:10px}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.opts button{padding:14px 12px;border-radius:18px;background:rgba(248,248,248,.1);border:1px solid rgba(248,248,248,.3);text-align:left;font:800 17px/1.05 "Barlow Condensed";text-transform:uppercase;color:var(--gelo);transition:all .25s;display:flex;flex-direction:column;gap:10px}
+.opts button svg{width:30px;height:30px;stroke:var(--turq)}
+.opts button.on{background:rgba(248,248,248,.95);color:var(--ink)}
+.opts button.on svg{stroke:var(--rosa)}
+.pick{display:none;margin-top:12px;padding:12px;border-radius:18px;background:rgba(248,248,248,.95);color:var(--ink);gap:14px;align-items:center}
+.pick.show{display:flex;animation:in .6s forwards}
+.pick img{width:84px;height:104px;object-fit:cover;border-radius:14px;flex:none}
+.pick b{display:block;font:900 22px/1 "Barlow Condensed";text-transform:uppercase}
+.pick p{font-size:12.5px;font-weight:600;color:#4d6766;margin:4px 0 10px;line-height:1.35}
+.pick a{display:inline-flex;padding:9px 12px;border-radius:11px;background:var(--rosa);color:#fff;font:800 12.5px Barlow}
+.foot{padding:30px 22px 0;text-align:center;font-size:11.5px;font-weight:600;color:var(--soft);line-height:1.6}
+.soc{display:flex;justify-content:center;gap:10px;margin-bottom:12px}
+.soc a{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+/* ---------- sheets ---------- */
+.ov{position:fixed;inset:0;z-index:50;background:rgba(5,25,27,.5);opacity:0;pointer-events:none;transition:opacity .35s}
+.ov.open{opacity:1;pointer-events:auto}
+.fs{position:fixed;left:0;right:0;bottom:0;z-index:51;max-width:480px;margin:0 auto;border-radius:30px 30px 0 0;background:linear-gradient(160deg,rgba(30,80,82,.82),rgba(11,46,48,.9));backdrop-filter:blur(26px) saturate(1.4);-webkit-backdrop-filter:blur(26px) saturate(1.4);border:1px solid var(--edge);border-bottom:0;padding:22px 20px calc(24px + env(safe-area-inset-bottom));transform:translateY(105%);visibility:hidden;transition:transform .5s cubic-bezier(.2,.9,.2,1),visibility 0s .5s;max-height:90svh;overflow-y:auto}
+.fs.open{transform:none;visibility:visible;transition:transform .5s cubic-bezier(.2,.9,.2,1)}
+.grab{width:40px;height:4px;border-radius:4px;background:rgba(248,248,248,.4);margin:-8px auto 14px}
+.fs h3{font:900 30px/1 "Barlow Condensed";text-transform:uppercase;margin-bottom:6px;padding-right:40px}
+.fs p.d{font-size:14px;font-weight:600;color:var(--soft);margin-bottom:14px}
+.x{position:absolute;right:16px;top:16px;width:34px;height:34px;border-radius:50%;background:rgba(248,248,248,.15);font-size:15px}
+.ul{display:flex;flex-direction:column;gap:8px}
+.ul a{display:flex;align-items:center;gap:12px;padding:14px;border-radius:16px;background:rgba(248,248,248,.1);border:1px solid rgba(248,248,248,.25)}
+.ul a .n{flex:1}
+.ul a b{display:block;font:800 18px/1.05 "Barlow Condensed";text-transform:uppercase}
+.ul a small{font-size:12px;font-weight:600;color:var(--soft)}
+.ul a .k{font:800 11.5px Barlow;color:var(--turq)}
+.ul a.best{background:rgba(248,248,248,.95);color:var(--ink)}
+.ul a.best small{color:#4d6766}.ul a.best .k{color:var(--rosa)}
+.ul a .gox{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--rosa);color:#fff;font-weight:800;flex:none}
+.ul.n99 a .gox{background:var(--amar);color:var(--ink)}
+.fs label{display:block;font-size:13px;font-weight:700;color:var(--soft);margin:12px 0 6px}
+.fs input{width:100%;padding:13px 14px;border-radius:12px;background:rgba(248,248,248,.92);border:1px solid #fff;color:var(--ink);font:600 16px Barlow;outline:none}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chips button{padding:9px 12px;border-radius:999px;background:rgba(248,248,248,.1);border:1px solid rgba(248,248,248,.3);font:700 13px Barlow}
+.chips button.on{background:var(--turq);border-color:var(--turq);color:var(--ink)}
+.send{margin-top:18px;width:100%;padding:15px;border-radius:14px;background:var(--verde);color:var(--ink);font:800 18px "Barlow Condensed";text-transform:uppercase;letter-spacing:.4px}
+/* granulado */
+.spr{position:fixed;z-index:60;width:10px;height:4px;border-radius:3px;pointer-events:none;animation:spr .9s cubic-bezier(.2,.7,.4,1) forwards}
+@keyframes spr{from{transform:translate(-50%,-50%) rotate(var(--r)) scale(.4);opacity:1}to{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) rotate(calc(var(--r) + 260deg)) scale(1);opacity:0}}
+@media (min-width:960px){
+ .wrap{max-width:1220px;display:grid;grid-template-columns:minmax(0,1fr) 520px;gap:60px;padding:0 40px;align-items:start}
+ .hero{position:sticky;top:0;height:100vh;min-height:0;padding:44px 0 64px;justify-content:center}
+ .htxt{margin-top:28px}
+ .h{font-size:104px}.sub{font-size:19px;max-width:440px}
+ .sheet{margin:40px 0;padding:24px 0 30px;border-radius:32px}
+ .fs{bottom:auto;top:50%;border-radius:28px;border-bottom:1px solid var(--edge);transform:translateY(-40%) scale(.96);opacity:0;pointer-events:none;transition:all .4s cubic-bezier(.2,.9,.2,1)}
+ .fs.open{transform:translateY(-50%);opacity:1;pointer-events:auto}.fs .grab{display:none}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.w,.rv{opacity:1;transform:none;filter:none}.snow{display:none}}
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="snow" id="snow" aria-hidden="true"></div>
+
+<main class="wrap">
+  <header class="hero">
+    <div class="brand"><img src="img/logo-original.png" alt="Ice Polar Sorvetes"><span>ICE POLAR SORVETES</span></div>
+    <div class="htxt">
+      <div class="kick w" style="animation-delay:.4s">FEITO NA NOSSA FÁBRICA</div>
+      <h1 class="h" id="ht">Sorvete<br>artesanal<br>de <em>verdade.</em></h1>
+      <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser. Ache a loja mais perto ou peça agora no iFood.</p>
+    </div>
+  </header>
+
+  <section class="sheet">
+    <div class="px">
+      <button class="btn b-ifood" data-sheet="ifood">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 11h14l-1.4 8.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8z"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg></span>
+        <span><span class="t">Peça no iFood</span><span class="s">Receba em casa</span></span><span class="ar">→</span>
+      </button>
+      <button class="btn b-ice b-99 ice" data-sheet="n99">
+        <span class="ic">99</span>
+        <span><span class="t">Peça pela 99Food</span><span class="s">Em 4 lojas</span></span><span class="ar">→</span>
+      </button>
+    </div>
+
+    <div class="sec rv">
+      <div class="lab">CARDÁPIO</div>
+      <h2 class="tt">Tem de tudo<br>na <em>Ice Polar</em></h2>
+      <div class="car" id="car"></div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+    </div>
+
+    <div class="sec rv" id="lojas">
+      <div class="lab">ONDE ESTAMOS</div>
+      <h2 class="tt">Qual Ice Polar<br>fica <em>mais perto?</em></h2>
+      <div class="near ice">
+        <form class="search" id="sf" autocomplete="off">
+          <label for="addr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Digite seu endereço</label>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0B2E30" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          <input id="addr" type="text" placeholder="Seu endereço" enterkeyhint="search">
+          <button type="button" class="gps" id="gps" aria-label="Usar minha localização"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B2E30" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="7.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3"/></svg></button>
+          <button type="submit" class="go">Buscar</button>
+        </form>
+        <div class="sugg" id="sugg" hidden></div>
+        <p class="hint" id="hint">Digite seu endereço em São Carlos ou Itirapina e mostramos a loja mais próxima.</p>
+        <div class="res" id="res"></div>
+        <button class="allbtn" id="all" type="button">Ver todas as 10 lojas</button>
+      </div>
+    </div>
+
+    <div class="sec rv">
+      <div class="lab">SUGESTÃO DO DIA</div>
+      <h2 class="tt">Qual Ice combina<br>com você <em>agora?</em></h2>
+      <div class="quiz ice">
+        <div class="q">Toque no seu momento:</div>
+        <div class="opts" id="opts">
+          <button data-p="picole"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13v6M10 10v12M22 10v12M26 13v6M10 16h12"/></svg>Saí do treino</button>
+          <button data-p="sobremesas"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l2.6 6.4L25 11l-5 4.4L21.6 22 16 18.6 10.4 22 12 15.4 7 11l6.4-.6z"/><path d="M8 27h16"/></svg>Quero algo especial</button>
+          <button data-p="massa"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="11" r="3.2"/><path d="M4 26c0-4.4 3.1-8 7-8s7 3.6 7 8M17 26c.4-3.4 2.4-6 5-6 2.8 0 5 2.7 5 6"/></svg>Pra curtir junto</button>
+          <button data-p="caldas"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="5"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.8 6.8l2.1 2.1M23.1 23.1l2.1 2.1M6.8 25.2l2.1-2.1M23.1 8.9l2.1-2.1"/></svg>Tá muito calor</button>
+        </div>
+        <div class="pick" id="pick"></div>
+      </div>
+    </div>
+
+    <div class="px sec rv" style="display:flex;flex-direction:column;gap:10px">
+      <button class="btn b-ice ice" data-sheet="festa" style="margin-top:0">
+        <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F8F8F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-14 9 9z"/><path d="M14 4l1 2M19 7l2-1M17 3v2"/></svg></span>
+        <span><span class="t">Festas e revenda</span><span class="s">Ice Polar no seu evento ou na sua loja</span></span><span class="ar">→</span>
+      </button>
+      <a class="btn b-ice ice" style="margin-top:0" href="https://drive.google.com/file/d/1U93Xx9nmDMOrEj23qRDMjStI_-OOPXPp/view?usp=sharing" target="_blank" rel="noopener">
+        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F8F8F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6-4v4l6-4v4l6-4v15z"/><path d="M8 21v-4h3v4"/></svg></span>
+        <span><span class="t">Conheça a Ice Polar</span><span class="s">Nossa história e a fábrica</span></span><span class="ar">→</span>
+      </a>
+    </div>
+
+    <footer class="foot">
+      ICE POLAR SORVETES · São Carlos e Itirapina/SP
+    </footer>
+  </section>
+</main>
+
+<div class="ov" id="ov"></div>
+<div class="fs" id="fs" role="dialog" aria-modal="true"><div class="grab"></div><button class="x" id="fx" aria-label="Fechar">✕</button><div id="fsb"></div></div>
+
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const WA='551631167170';
+/* ====== LOJAS (Google Maps, nov/2026) ====== */
+const UNITS=[
+ {n:'Santa Felícia',g:'Sorveteria Ice Polar Santa Felicia',a:'Av. Bruno Ruggiero Filho, 1002',b:'Parque Santa Felícia',c:'São Carlos',ll:[-22.0022892,-47.9200858],
+  ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---santa-felicia-parque-santa-felicia-jardim/e773aa81-d496-4e63-b6e2-da55c9b1c3df',n99:'https://oia.99app.com/dlp9/3SVskr'},
+ {n:'Botafogo',g:'Sorveteria Ice Polar - Botafogo',a:'Av. José Pereira Lopes, 1390 B',b:'Jardim Botafogo',c:'São Carlos',ll:[-22.0257747,-47.9116797],
+  ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar-botafogo-jardim-botafogo-1/78208ad0-ab3f-4deb-aae6-3096b8afa403',n99:'https://oia.99app.com/dlp9/fvCWuq'},
+ {n:'Vila Nery',g:'Sorveteria Ice Polar Vila Nery',a:'Av. Cap. Luíz Brandão, 321',b:'Vila Nery',c:'São Carlos',ll:[-22.0104272,-47.8712554],
+  ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---vila-nery-vila-vista-alegre/bdf49873-aa03-4711-95a1-26fee19c9b2f',n99:'https://oia.99app.com/dlp9/2U0Uat'},
+ {n:'Larga',g:'Sorveteria Ice Polar - Larga',a:'Av. Dr. Teixeira de Barros, 513',b:'Vila Prado',c:'São Carlos',ll:[-22.0260188,-47.8983359]},
+ {n:'Redenção',g:'Sorveteria Ice Polar - Redenção',a:'R. Des. Júlio de Faria, 101',b:'Vila Prado',c:'São Carlos',ll:[-22.0359565,-47.9069521]},
+ {n:'Tetra',g:'Sorveteria Ice Polar - Loja Tetra',a:'Av. Tetracampeonato, 1162',b:'Bela Vista São-Carlense',c:'São Carlos',ll:[-22.0554972,-47.915128],
+  ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar-tetra-cidade-aracy/413d9327-a5d0-4119-8a4b-5ded6f5fdd21',n99:'https://oia.99app.com/dlp9/0d6FrO'},
+ {n:'Cidade Aracy',g:'Sorveteria Ice Polar - Cidade Aracy',a:'Av. Regit Arab, 35',b:'Cidade Aracy',c:'São Carlos',ll:[-22.0586696,-47.8994791],
+  ifood:'https://www.ifood.com.br/delivery/sao-carlos-sp/ice-polar---cidade-aracy-cidade-aracy/cdfdc9b3-19f8-44cd-959b-b74cf45b769b'},
+ {n:'Golias',g:'Sorveteria Ice Polar - Golias',a:'R. João Jacinto de Oliveira, 280',b:'Cidade Aracy II',c:'São Carlos',ll:[-22.0570605,-47.906957]},
+ {n:'Antenor Garcia',g:'Sorveteria Ice Polar - Antenor',a:'R. Jayme Bruno, 1034',b:'Antenor Garcia',c:'São Carlos',ll:[-22.0532691,-47.9192711]},
+ {n:'Itirapina',g:'Sorveteria Ice Polar - Itirapina',a:'R. 05, 444',b:'Centro',c:'Itirapina',ll:[-22.2539733,-47.8213389]}
+];
+/* ====== CARDÁPIO POR CATEGORIA ====== */
+const PRODS=[
+ {id:'picole',n:'Picolés',d:'Do clássico cremoso ao Ice Protein, com zero adição de açúcar.',img:'img/cat-picole.webp',bd:'PICOLÉS',bc:'#82C5B7'},
+ {id:'massa',n:'Sorvete de massa',d:'Bolas generosas, sabores da nossa fábrica e coberturas à vontade.',img:'img/cat-massa.webp',bd:'NA LOJA E NO IFOOD',bc:'#11DED7'},
+ {id:'caldas',n:'Caldas e coberturas',d:'Calda de chocolate escorrendo por cima. Do jeito que tem que ser.',img:'img/cat-caldas.webp',bd:'IRRESISTÍVEL',bc:'#F6F282'},
+ {id:'sobremesas',n:'Sobremesas',d:'Petit gâteau, brownie e taças especiais com sorvete.',img:'img/cat-sobremesas.webp',bd:'PRA DIVIDIR',bc:'#DF8CBA'},
+ {id:'cestinha',n:'Cestinha',d:'Cestinha crocante com sorvete e calda. Pra comer de colher.',img:'img/cat-cestinha.webp',bd:'CROCANTE',bc:'#D7E17D'},
+ {id:'acai',n:'Açaí',d:'Açaí no copo com os acompanhamentos que você mais gosta.',img:'img/cat-acai.webp',bd:'GELADINHO',bc:'#B3E9DB'},
+ {id:'potes',n:'Potes pra levar',d:'Sabores da fábrica pra curtir em casa, com edições especiais.',img:'img/cat-potes.webp',bd:'PRA CASA',bc:'#A8E071'},
+];
+let me=null;
+const km=(a,b)=>{const R=6371,t=Math.PI/180,x=(b[0]-a[0])*t,y=(b[1]-a[1])*t,h=Math.sin(x/2)**2+Math.cos(a[0]*t)*Math.cos(b[0]*t)*Math.sin(y/2)**2;return 2*R*Math.asin(Math.sqrt(h))*1.25};
+const fkm=d=>d<1?Math.max(50,Math.round(d*1000/50)*50)+' m':(d<10?d.toFixed(1).replace('.',','):Math.round(d))+' km';
+const addr=u=>`${u.a} - ${u.b}, ${u.c} - SP`;
+const gmaps=u=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(u.g+', '+u.a+', '+u.c+' - SP');
+const waze=u=>'https://waze.com/ul?q='+encodeURIComponent(addr(u))+'&navigate=yes';
+const sorted=list=>me?list.map(u=>({...u,d:km(me,u.ll)})).sort((x,y)=>x.d-y.d):list;
+function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
+/* título palavra por palavra */
+(()=>{const h=$('#ht');let d=.5;h.innerHTML=h.innerHTML.split(/(<br>|<em>|<\/em>)/).map(p=>/^</.test(p)?p:(/^\s/.test(p)?' ':'')+p.split(' ').filter(Boolean).map(w=>`<span class="w" style="animation-delay:${(d+=.13).toFixed(2)}s">${w}</span>`).join(' ')+(/\s$/.test(p)?' ':'')).join('');})();
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.08});$$('.rv').forEach(el=>io.observe(el));
+/* neve */
+if(!reduce){const sn=$('#snow');const N=innerWidth>700?34:22;for(let i=0;i<N;i++){const f=document.createElement('span');f.className='flake';f.textContent=Math.random()<.5?'❄':'•';const s=8+Math.random()*14;const du=9+Math.random()*12;f.style.cssText=`left:${Math.random()*100}%;font-size:${s}px;opacity:${(.45+Math.random()*.5).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*80-40).toFixed(0)}px`;sn.appendChild(f)}}
+/* granulado nas cores da paleta */
+const SPR=['#EB2F65','#11DED7','#A8E071','#F6F282','#DF8CBA','#B3E9DB'];
+function sprinkle(x,y,n=12){if(reduce)return;for(let i=0;i<n;i++){const s=document.createElement('span');s.className='spr';const a=Math.random()*Math.PI*2,r=26+Math.random()*46;s.style.cssText=`left:${x}px;top:${y}px;background:${SPR[i%SPR.length]};--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px;--r:${Math.random()*180}deg`;document.body.appendChild(s);setTimeout(()=>s.remove(),950)}}
+document.addEventListener('pointerdown',e=>{if(e.target.closest('a,button'))sprinkle(e.clientX,e.clientY)},{passive:true});
+
+/* ====== buscador por endereço ====== */
+const SC=[-22.0175,-47.8908];
+const input=$('#addr'),sugg=$('#sugg'),res=$('#res'),hint=$('#hint');
+const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function label(f){const p=f.properties;return {t:[p.street||p.name,p.housenumber].filter(Boolean).join(', ')||p.name,s:[p.district||p.locality,p.city].filter(Boolean).join(' · ')}}
+async function geocode(q,limit=5){
+ const query=/s[aã]o carlos|itirapina/i.test(q)?q:q+', São Carlos SP';
+ try{const r=await fetch(`https://photon.komoot.io/api/?q=${encodeURIComponent(query)}&lat=${SC[0]}&lon=${SC[1]}&limit=${limit}&lang=default`);const j=await r.json();
+  const f=(j.features||[]).filter(x=>{const c=x.geometry.coordinates;return km([c[1],c[0]],SC)<70});if(f.length)return f}catch(e){}
+ try{const r=await fetch(`https://nominatim.openstreetmap.org/search?format=jsonv2&countrycodes=br&limit=${limit}&viewbox=-48.1,-21.85,-47.7,-22.35&bounded=1&q=${encodeURIComponent(query)}`);const j=await r.json();
+  return j.map(x=>({geometry:{coordinates:[+x.lon,+x.lat]},properties:{name:x.display_name.split(',')[0],street:'',city:'',district:x.display_name.split(',').slice(1,3).join(',')}}))}catch(e){}
+ return null}
+let tmr=null,seq=0;
+input.addEventListener('input',()=>{clearTimeout(tmr);const q=input.value.trim();if(q.length<4){sugg.hidden=true;return}
+ tmr=setTimeout(async()=>{const my=++seq;const f=await geocode(q);if(my!==seq)return;sugg.innerHTML='';if(!f||!f.length){sugg.hidden=true;return}
+  f.slice(0,4).forEach(x=>{const l=label(x);const b=document.createElement('button');b.type='button';b.innerHTML=`${l.t}<small>${l.s}</small>`;b.onclick=()=>{input.value=l.t+(l.s?', '+l.s:'');sugg.hidden=true;const c=x.geometry.coordinates;found([c[1],c[0]],l.t)};sugg.appendChild(b)});sugg.hidden=false},350)});
+$('#sf').addEventListener('submit',async e=>{e.preventDefault();sugg.hidden=true;const q=input.value.trim();if(!q){input.focus();return}
+ hint.textContent='Procurando…';const f=await geocode(q,1);
+ if(f&&f.length){const c=f[0].geometry.coordinates;found([c[1],c[0]],label(f[0]).t);return}
+ const n=norm(q),u=UNITS.find(u=>n.includes(norm(u.b))||n.includes(norm(u.n)));
+ if(u){found(u.ll,u.b);return}
+ hint.textContent='';res.innerHTML='<div class="msg">Não achamos esse endereço. Tente com rua, número e bairro, ou toque no alvo para usar sua localização.</div>';res.classList.add('show')});
+$('#gps').onclick=()=>{if(!navigator.geolocation){hint.textContent='Seu aparelho não liberou a localização. Digite o endereço.';return}
+ hint.textContent='Procurando você…';navigator.geolocation.getCurrentPosition(p=>found([p.coords.latitude,p.coords.longitude],'sua localização'),()=>{hint.textContent='Sem permissão de localização. Digite seu endereço acima.'},{enableHighAccuracy:true,timeout:9000,maximumAge:60000})};
+function unitHTML(u,best){return `<div class="unit${best?' best':''}"><div class="hd"><div>${best?'<span class="tag">MAIS PERTO DE VOCÊ</span>':''}<b>Ice Polar ${u.n}</b><small>${u.a} · ${u.b}${u.c!=='São Carlos'?' · '+u.c:''}</small></div>${u.d!=null?`<span class="km">${fkm(u.d)}</span>`:''}</div>
+<div class="acts"><a class="a-map" href="${gmaps(u)}" target="_blank" rel="noopener">Ver rota</a><a class="a-wz" href="${waze(u)}" target="_blank" rel="noopener">Waze</a>${u.ifood?`<a class="a-if" href="${u.ifood}" target="_blank" rel="noopener">iFood</a>`:''}</div></div>`}
+function found(ll,from){me=ll;const L=sorted(UNITS);const u=L[0];hint.textContent='';
+ res.innerHTML=`<p class="from">A partir de <b>${from}</b></p><div class="mapb"><iframe loading="lazy" title="Mapa Ice Polar ${u.n}" src="https://www.google.com/maps?q=${encodeURIComponent(u.g+', '+addr(u))}&z=15&output=embed"></iframe><span class="pinb">ICE POLAR ${u.n.toUpperCase()}</span></div>${unitHTML(u,true)}<div class="more">${L.slice(1,3).map(x=>unitHTML(x,false)).join('')}</div>`;
+ res.classList.remove('show');void res.offsetWidth;res.classList.add('show');vib(12);setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'nearest'}),150)}
+$('#all').onclick=()=>{const L=sorted(UNITS);res.innerHTML=L.map((u,i)=>unitHTML(u,me&&i===0)).join('');res.classList.remove('show');void res.offsetWidth;res.classList.add('show')};
+
+/* cardápio */
+const car=$('#car'),dots=$('#dots');
+PRODS.forEach(p=>{const a=document.createElement('div');a.className='card ice';
+ a.innerHTML=`<div class="im"><img src="${p.img}" alt="${p.n} Ice Polar" loading="lazy"><video src="media/cat-${p.id}.mp4" poster="${p.img}" muted loop playsinline preload="none" aria-hidden="true"></video><span class="bd" style="background:${p.bc}">${p.bd}</span></div><div class="tx"><div class="nm">${p.n}</div><div class="ds">${p.d}</div><button class="ask" data-sheet="ifood">Pedir no iFood →</button></div>`;
+ car.appendChild(a);dots.appendChild(document.createElement('span'))});
+function carFx(){const c=car.getBoundingClientRect(),mid=c.left+c.width/2;let best=0,bd=1e9;[...car.children].forEach((el,i)=>{const r=el.getBoundingClientRect(),d=(r.left+r.width/2-mid)/c.width,ad=Math.abs(d);el.style.transform=`perspective(700px) rotateY(${-d*22}deg) scale(${1-Math.min(ad,1)*.14})`;el.style.opacity=(1-Math.min(ad,1)*.35).toFixed(2);if(ad<bd){bd=ad;best=i}});[...dots.children].forEach((d,i)=>d.className=i===best?'on':'')}
+const cio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');if(!v)return;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});[...car.children].forEach(c=>cio.observe(c));
+car.addEventListener('scroll',()=>requestAnimationFrame(carFx),{passive:true});addEventListener('resize',carFx);setTimeout(carFx,80);
+
+/* sugestão do dia */
+const PICK={picole:['Ice Protein','Picolé com 10 g de proteína e zero adição de açúcar. O doce que cabe no pós-treino.'],sobremesas:['Petit gâteau com sorvete','Bolo quente, recheio escorrendo e sorvete gelado por cima.'],massa:['Uma taça na loja','Chame alguém e monte a sua na Ice Polar mais perto.'],caldas:['Sorvete com calda','Geladinho, cremoso e com calda escorrendo. Peça e receba em casa.']};
+$$('#opts button').forEach(b=>b.onclick=e=>{$$('#opts button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const k=b.dataset.p,p=PRODS.find(x=>x.id===k),t=PICK[k];
+ const cta=k==='massa'?`<a href="#lojas">Achar a loja mais perto →</a>`:`<a href="#" data-sheet="ifood">Pedir no iFood →</a>`;
+ $('#pick').innerHTML=`<img src="${p.img}" alt=""><div><b>${t[0]}</b><p>${t[1]}</p>${cta}</div>`;const pk=$('#pick');pk.classList.remove('show');void pk.offsetWidth;pk.classList.add('show');vib(10)});
+
+/* sheets */
+const fs=$('#fs'),ov=$('#ov'),fsb=$('#fsb');
+function openS(kind){let h='';
+ if(kind==='ifood'||kind==='n99'){const key=kind;const L=sorted(UNITS.filter(u=>u[key]));
+  h=`<h3>${kind==='ifood'?'Peça no iFood':'Peça pela 99Food'}</h3><p class="d">${me?'Ordenado pela loja mais perto de você.':'Escolha a loja que entrega no seu bairro.'}</p><div class="ul ${kind}">`+L.map((u,i)=>`<a href="${u[key]}" target="_blank" rel="noopener" class="${me&&i===0?'best':''}"><span class="n"><b>Ice Polar ${u.n}</b><small>${u.b}</small>${u.d!=null?` <span class="k">· ${fkm(u.d)}${i===0?' · mais perto':''}</span>`:''}</span><span class="gox">→</span></a>`).join('')+`</div>`+(me?'':`<button class="allbtn" id="sg" type="button">Descobrir a loja mais perto de mim</button>`);}
+ else{h=`<h3>Festas e revenda</h3><p class="d">Conta pra gente e a equipe responde no WhatsApp.</p>
+  <div class="chips" id="ft"><button class="on" type="button">Festa / aniversário</button><button type="button">Evento de empresa</button><button type="button">Quero revender</button></div>
+  <div class="two"><div><label for="fd">Data</label><input id="fd" type="date"></div><div><label for="fp">Pessoas</label><input id="fp" type="number" inputmode="numeric" placeholder="Ex.: 50"></div></div>
+  <label for="fn">Seu nome</label><input id="fn" type="text" autocomplete="name"><label for="fc">Cidade / bairro</label><input id="fc" type="text" placeholder="São Carlos"><button class="send" id="snd" type="button">Enviar no WhatsApp</button>`}
+ fsb.innerHTML=h;fs.classList.add('open');ov.classList.add('open');vib(8);
+ $$('#ft button').forEach(b=>b.onclick=()=>{$$('#ft button').forEach(x=>x.classList.remove('on'));b.classList.add('on')});
+ const sg=$('#sg');if(sg)sg.onclick=()=>{closeS();$('#lojas').scrollIntoView({behavior:'smooth'});setTimeout(()=>input.focus(),600)};
+ const snd=$('#snd');if(snd)snd.onclick=()=>{const tp=$('#ft .on').textContent,d=$('#fd').value?new Date($('#fd').value+'T12:00').toLocaleDateString('pt-BR'):'-';
+  const m=`Olá, Ice Polar! Vim pelo link da bio.\nAssunto: ${tp}\nData: ${d}\nPessoas: ${$('#fp').value||'-'}\nNome: ${$('#fn').value||'-'}\nCidade/bairro: ${$('#fc').value||'-'}`;window.open(`https://wa.me/${WA}?text=${encodeURIComponent(m)}`,'_blank');closeS()}}
+function closeS(){fs.classList.remove('open');ov.classList.remove('open')}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-sheet]');if(t){e.preventDefault();openS(t.dataset.sheet)}});
+ov.onclick=closeS;$('#fx').onclick=closeS;addEventListener('keydown',e=>{if(e.key==='Escape')closeS()});
+</script>
+</body>
+</html>
