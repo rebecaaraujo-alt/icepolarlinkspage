@@ -216,7 +216,7 @@ button{background:none;border:0;cursor:pointer}
 :root{--soft:rgba(11,46,48,.72);--edge:transparent}
 html,body{background:#A9D9D8;color:#0B2E30}
 body{font-family:Nunito,system-ui,sans-serif}
-.bg{background:#A9D9D8 url(img/ice.webp?v=2) center top/cover no-repeat}.bg i,.bg:before,.bg:after{display:none}
+.bg{background:#BFE6E4 url(img/ice.webp?v=3) center top/cover no-repeat}.bg i,.bg:before,.bg:after{display:none}
 .flake{text-shadow:0 0 6px rgba(40,140,150,.55)}
 .brand img{box-shadow:0 0 0 3px #F8F8F8}
 .kick{color:#0B2E30;text-shadow:none;opacity:1}
@@ -321,6 +321,29 @@ body{font-family:Nunito,system-ui,sans-serif}
 .ul a:not(.best){background:rgba(255,255,255,.5)}
 .mapb{background:rgba(255,255,255,.35)}
 .search{background:rgba(255,255,255,.92)}
+
+/* v2: vidro mais leitor sobre a foto de gelo com neve */
+.ice,.temp{background:rgba(255,255,255,.3);-webkit-backdrop-filter:blur(16px) saturate(1.6);backdrop-filter:blur(16px) saturate(1.6)}
+.card.ice,.near.ice,.quiz.ice{background:rgba(255,255,255,.3)}
+.unit:not(.best){background:rgba(255,255,255,.42)}
+.fs{background:rgba(255,255,255,.62)}
+.b-99.ice{background:#F6F282}
+.card .ds{opacity:1;font-weight:700}
+.foot{font-weight:800;text-shadow:0 0 8px #fff,0 0 10px #fff}
+
+/* ===== HERO: hierarquia mais harmônica ===== */
+.hero{padding:calc(30px + env(safe-area-inset-top)) 22px 26px}
+.brand img{width:76px;height:76px;box-shadow:0 0 0 4px #F8F8F8,0 10px 24px -10px rgba(11,46,48,.45)}
+.htxt{margin-top:18px;gap:0}
+.kick{display:inline-flex;align-items:center;gap:8px;margin:0 0 14px;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.9);font:800 11px Nunito;letter-spacing:1.8px;color:#0B2E30}
+.kick i{width:7px;height:7px;border-radius:50%;background:#EB2F65;display:block;flex:none}
+.h{font-size:clamp(34px,10.6vw,44px);line-height:1.04;letter-spacing:-.4px;font-weight:800}
+.h em{display:inline-block;font-size:1.32em;line-height:1;margin-top:2px;letter-spacing:-.8px}
+.sub{font:700 15px/1.5 Nunito;max-width:292px;margin-top:14px;color:#0B2E30;opacity:.85;text-wrap:balance}
+.temp{margin-top:6px}
+.b-ice[data-sheet=festa] .ic{background:#EB2F65}
+.b-ice[data-sheet=festa] .ic svg{stroke:#fff}
+@media (min-width:960px){.h{font-size:60px}.sub{font-size:18px;max-width:420px}}
 </style>
 </head>
 <body>
@@ -332,8 +355,8 @@ body{font-family:Nunito,system-ui,sans-serif}
   <header class="hero">
     <div class="brand"><img src="img/logo-original.png" alt="Ice Polar Sorvetes"></div>
     <div class="htxt">
-      <div class="kick w" style="animation-delay:.4s">FEITO NA NOSSA FÁBRICA</div>
-      <h1 class="h" id="ht">Sorvete<br>artesanal<br>de <em>verdade.</em></h1>
+      <div class="kick w" style="animation-delay:.4s"><i></i>FEITO NA NOSSA FÁBRICA</div>
+      <h1 class="h" id="ht">Sorvete artesanal<br>de <em>verdade.</em></h1>
       <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser. Ache a loja mais perto ou peça agora no iFood.</p>
     </div>
   </header>
@@ -402,30 +425,11 @@ body{font-family:Nunito,system-ui,sans-serif}
       </div>
     </div>
 
-    <div class="sec rv">
-      <div class="lab">SUGESTÃO DO DIA</div>
-      <h2 class="tt">Qual Ice combina<br>com você <em>agora?</em></h2>
-      <div class="quiz ice">
-        <div class="q">Toque no seu momento:</div>
-        <div class="opts" id="opts">
-          <button data-p="picole"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13v6M10 10v12M22 10v12M26 13v6M10 16h12"/></svg>Saí do treino</button>
-          <button data-p="sobremesas"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4l2.6 6.4L25 11l-5 4.4L21.6 22 16 18.6 10.4 22 12 15.4 7 11l6.4-.6z"/><path d="M8 27h16"/></svg>Quero algo especial</button>
-          <button data-p="massa"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="10" r="4"/><circle cx="22" cy="11" r="3.2"/><path d="M4 26c0-4.4 3.1-8 7-8s7 3.6 7 8M17 26c.4-3.4 2.4-6 5-6 2.8 0 5 2.7 5 6"/></svg>Pra curtir junto</button>
-          <button data-p="caldas"><svg viewBox="0 0 32 32" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="16" cy="16" r="5"/><path d="M16 3v3M16 26v3M3 16h3M26 16h3M6.8 6.8l2.1 2.1M23.1 23.1l2.1 2.1M6.8 25.2l2.1-2.1M23.1 8.9l2.1-2.1"/></svg>Tá muito calor</button>
-        </div>
-        <div class="pick" id="pick"></div>
-      </div>
-    </div>
-
     <div class="px sec rv" style="display:flex;flex-direction:column;gap:10px">
       <button class="btn b-ice ice" data-sheet="festa" style="margin-top:0">
         <span class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#F8F8F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l5-14 9 9z"/><path d="M14 4l1 2M19 7l2-1M17 3v2"/></svg></span>
         <span><span class="t">Festas e revenda</span><span class="s">Ice Polar no seu evento ou na sua loja</span></span><span class="ar">→</span>
       </button>
-      <a class="btn b-ice ice" style="margin-top:0" href="https://drive.google.com/file/d/1U93Xx9nmDMOrEj23qRDMjStI_-OOPXPp/view?usp=sharing" target="_blank" rel="noopener">
-        <span class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#F8F8F8" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V10l6-4v4l6-4v4l6-4v15z"/><path d="M8 21v-4h3v4"/></svg></span>
-        <span><span class="t">Conheça a Ice Polar</span><span class="s">Nossa história e a fábrica</span></span><span class="ar">→</span>
-      </a>
     </div>
 
     <footer class="foot">
@@ -561,12 +565,6 @@ PRODS.forEach(p=>{const a=document.createElement('div');a.className='card ice';
 function carFx(){const c=car.getBoundingClientRect(),mid=c.left+c.width/2;let best=0,bd=1e9;[...car.children].forEach((el,i)=>{const r=el.getBoundingClientRect(),d=(r.left+r.width/2-mid)/c.width,ad=Math.abs(d);el.style.transform=`perspective(700px) rotateY(${-d*22}deg) scale(${1-Math.min(ad,1)*.14})`;el.style.opacity=(1-Math.min(ad,1)*.35).toFixed(2);if(ad<bd){bd=ad;best=i}});[...dots.children].forEach((d,i)=>d.className=i===best?'on':'')}
 const cio=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target.querySelector('video');if(!v)return;if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()}),{threshold:.35});[...car.children].forEach(c=>cio.observe(c));
 car.addEventListener('scroll',()=>requestAnimationFrame(carFx),{passive:true});addEventListener('resize',carFx);setTimeout(carFx,80);
-
-/* sugestão do dia */
-const PICK={picole:['Ice Protein','Picolé com 10 g de proteína e zero adição de açúcar. O doce que cabe no pós-treino.'],sobremesas:['Petit gâteau com sorvete','Bolo quente, recheio escorrendo e sorvete gelado por cima.'],massa:['Uma taça na loja','Chame alguém e monte a sua na Ice Polar mais perto.'],caldas:['Sorvete com calda','Geladinho, cremoso e com calda escorrendo. Peça e receba em casa.']};
-$$('#opts button').forEach(b=>b.onclick=e=>{$$('#opts button').forEach(x=>x.classList.remove('on'));b.classList.add('on');const k=b.dataset.p,p=PRODS.find(x=>x.id===k),t=PICK[k];
- const cta=k==='massa'?`<a href="#lojas">Achar a loja mais perto →</a>`:`<a href="#" data-sheet="ifood">Pedir no iFood →</a>`;
- $('#pick').innerHTML=`<img src="${p.img}" alt=""><div><b>${t[0]}</b><p>${t[1]}</p>${cta}</div>`;const pk=$('#pick');pk.classList.remove('show');void pk.offsetWidth;pk.classList.add('show');vib(10)});
 
 /* sheets */
 const fs=$('#fs'),ov=$('#ov'),fsb=$('#fsb');
