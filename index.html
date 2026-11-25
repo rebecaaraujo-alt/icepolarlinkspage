@@ -81,7 +81,7 @@ button{background:none;border:0;cursor:pointer}
 /* termômetro */
 .temp{margin:0 16px 14px;padding:14px;border-radius:22px;display:flex;gap:14px;align-items:center;background:rgba(248,248,248,.12);border:1px solid rgba(248,248,248,.3);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 14px 30px -16px rgba(0,0,0,.5)}
 .temp[hidden]{display:none}
-.bear{position:relative;width:84px;height:84px;flex:none;border-radius:50%;overflow:hidden;background:linear-gradient(160deg,rgba(248,248,248,.28),rgba(248,248,248,.06));box-shadow:0 0 0 3px var(--tc,#11DED7),0 0 26px -2px var(--tc,#11DED7);transition:box-shadow .6s}
+.bear{position:relative;width:84px;height:84px;flex:none;border-radius:50%;overflow:hidden;background:linear-gradient(180deg,#F6F282 0%,#F6F282 18%,#DF8CBA 48%,#82C5B7 100%);box-shadow:0 0 0 3px var(--tc,#11DED7),0 0 26px -2px var(--tc,#11DED7);transition:box-shadow .6s}
 .bear svg{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .bear .acc{opacity:0;transition:opacity .5s}.bear .acc.on{opacity:1}
 .bear .drop{animation:drip 1.6s ease-in infinite}
@@ -93,6 +93,11 @@ button{background:none;border:0;cursor:pointer}
 .tmsg{font:700 14.5px/1.25 Barlow;margin-top:3px;color:var(--gelo)}
 .tbar{margin-top:9px;height:6px;border-radius:6px;position:relative;background:linear-gradient(90deg,#11DED7,#B3E9DB 30%,#F6F282 62%,#EB2F65)}
 .tbar i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tc,#11DED7);transform:translateX(-50%);transition:left .8s}
+.tloc{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.tloc button,#tform button{padding:5px 10px;border-radius:99px;background:rgba(248,248,248,.16);border:1px solid rgba(248,248,248,.3);color:var(--gelo);font:700 11px Barlow}
+#tform{display:flex;gap:6px;margin-top:8px}#tform[hidden]{display:none}
+#tin{flex:1;min-width:0;padding:6px 10px;border-radius:10px;border:1px solid rgba(248,248,248,.4);background:rgba(248,248,248,.92);color:var(--ink);font:600 14px Barlow}
+#tform button{background:var(--verde);color:var(--ink);border:0}
 .ope{display:inline-flex;align-items:center;gap:6px;margin-top:6px;padding:3px 9px;border-radius:99px;font:800 11.5px Barlow;background:rgba(168,224,113,.2);color:#A8E071}
 .ope:before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor}
 .ope.off{background:rgba(235,47,101,.18);color:#FF7A9E}
@@ -116,6 +121,7 @@ button{background:none;border:0;cursor:pointer}
 .sugg button:first-child{border-top:0}
 .sugg button small{display:block;font-size:11.5px;color:#5f7b7a}
 .res{display:none;margin-top:14px;flex-direction:column;gap:10px}
+.col{align-self:center;padding:9px 18px;border-radius:99px;background:rgba(248,248,248,.16);border:1px solid rgba(248,248,248,.35);color:var(--gelo);font:800 12px Barlow}
 .res.show{display:flex;animation:in .6s forwards}
 .mapb{position:relative;height:220px;border-radius:18px;overflow:hidden;border:1px solid var(--edge);background:rgba(11,46,48,.4)}
 .mapb iframe{position:absolute;inset:-40px 0 0;width:100%;height:calc(100% + 80px);border:0}
@@ -228,25 +234,36 @@ button{background:none;border:0;cursor:pointer}
     <div class="temp" id="temp" hidden>
       <div class="bear" id="bear" role="img" aria-label="Urso polar da Ice Polar">
         <svg viewBox="0 0 100 100" aria-hidden="true">
-          <ellipse cx="50" cy="96" rx="34" ry="26" fill="#F8F8F8"/>
-          <circle cx="27" cy="30" r="10" fill="#F8F8F8"/><circle cx="27" cy="30" r="5" fill="#DF8CBA"/>
-          <circle cx="73" cy="30" r="10" fill="#F8F8F8"/><circle cx="73" cy="30" r="5" fill="#DF8CBA"/>
-          <ellipse cx="50" cy="52" rx="29" ry="26" fill="#FFFFFF"/>
-          <ellipse cx="50" cy="60" rx="13" ry="10" fill="#E6EEF0"/>
-          <circle cx="32" cy="58" r="4.5" fill="#DF8CBA" opacity=".55"/><circle cx="68" cy="58" r="4.5" fill="#DF8CBA" opacity=".55"/>
-          <ellipse cx="50" cy="55" rx="5" ry="3.4" fill="#0B2E30"/>
-          <path d="M50 58.5v4M50 62.5q-4 4-8 .8M50 62.5q4 4 8 .8" fill="none" stroke="#0B2E30" stroke-width="1.8" stroke-linecap="round"/>
-          <g id="a-eyes"><circle cx="38" cy="46" r="3" fill="#0B2E30"/><circle cx="62" cy="46" r="3" fill="#0B2E30"/><circle cx="39" cy="45" r="1" fill="#fff"/><circle cx="63" cy="45" r="1" fill="#fff"/></g>
-          <g class="acc" id="a-sun"><rect x="28" y="41" width="19" height="12" rx="5" fill="#0B2E30"/><rect x="53" y="41" width="19" height="12" rx="5" fill="#0B2E30"/><path d="M47 45h6" stroke="#0B2E30" stroke-width="2"/><path d="M32 44l5 0M57 44l5 0" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></g>
-          <g class="acc" id="a-beanie"><path d="M24 38Q24 9 50 9Q76 9 76 38Z" fill="#EB2F65"/><rect x="21" y="34" width="58" height="9" rx="4.5" fill="#F8F8F8" stroke="#C7D3D5" stroke-width="1"/><circle cx="50" cy="8" r="5.5" fill="#F8F8F8" stroke="#C7D3D5" stroke-width="1"/></g>
-          <g class="acc" id="a-scarf"><path d="M21 76Q50 92 79 76L82 87Q50 103 18 87Z" fill="#11DED7"/><path d="M62 90L65 108L77 105L74 88Z" fill="#11DED7"/><path d="M66 96h9M65.5 101h9" stroke="#F8F8F8" stroke-width="2"/></g>
-          <g class="acc" id="a-sweat"><path class="drop" d="M78 22q5 8 0 11q-5-3 0-11z" fill="#11DED7"/></g>
+          <ellipse cx="47" cy="90" rx="36" ry="3.4" fill="#0B2E30" opacity=".18"/>
+          <g stroke="#86B5B7" stroke-width="1.6" stroke-linejoin="round">
+            <rect x="21" y="68" width="13" height="21" rx="6.5" fill="#E9F3F4"/>
+            <rect x="52" y="68" width="13" height="21" rx="6.5" fill="#E9F3F4"/>
+            <ellipse cx="45" cy="63" rx="31" ry="21" fill="#FFFFFF"/>
+            <rect x="14" y="70" width="14" height="20" rx="7" fill="#FFFFFF"/>
+            <rect x="43" y="70" width="14" height="20" rx="7" fill="#FFFFFF"/>
+            <circle cx="14" cy="57" r="4.5" fill="#FFFFFF"/>
+            <circle cx="66" cy="40" r="6" fill="#FFFFFF"/>
+            <circle cx="72" cy="52" r="16" fill="#FFFFFF"/>
+            <ellipse cx="85" cy="58" rx="10" ry="7.5" fill="#FFFFFF"/>
+          </g>
+          <ellipse cx="70" cy="58" rx="9" ry="9" fill="#FFFFFF"/>
+          <circle cx="66" cy="40" r="3" fill="#DF8CBA"/>
+                    <ellipse cx="92" cy="55" rx="3.4" ry="2.8" fill="#0B2E30"/>
+          <path d="M86 63q3.5 3 7.5 0" fill="none" stroke="#0B2E30" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="77" cy="63" r="3.6" fill="#DF8CBA" opacity=".6"/>
+          <circle cx="78" cy="49" r="3.3" fill="#0B2E30"/><circle cx="79.2" cy="47.8" r="1.2" fill="#fff"/>
+          <g class="acc" id="a-sun"><path d="M71 49L64 46" stroke="#0B2E30" stroke-width="2" stroke-linecap="round"/><ellipse cx="78" cy="49" rx="7.5" ry="5.6" fill="#0B2E30"/><path d="M74 46.5l4-.5" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity=".6"/></g>
+          <g class="acc" id="a-beanie"><path d="M57 46Q56 24 73 24Q89 25 88 46Z" fill="#EB2F65" stroke="#fff" stroke-width="1"/><rect x="55" y="42" width="35" height="8" rx="4" fill="#F8F8F8" stroke="#86B5B7" stroke-width="1"/><circle cx="73" cy="23" r="5" fill="#F8F8F8" stroke="#86B5B7" stroke-width="1"/></g>
+          <g class="acc" id="a-scarf"><path d="M56 60Q66 70 80 63L82 71Q66 80 55 69Z" fill="#11DED7"/><path d="M58 71L55 88L63 89L66 74Z" fill="#11DED7"/><path d="M56 80h8M55.5 84h8" stroke="#F8F8F8" stroke-width="2"/></g>
+          <g class="acc" id="a-sweat"><path class="drop" d="M90 36q5 8 0 11q-5-3 0-11z" fill="#11DED7"/></g>
         </svg>
       </div>
       <div class="tinf">
         <div class="tnum"><b id="tdeg">--°</b><span id="tcity">Buscando o clima…</span></div>
         <div class="tmsg" id="tmsg">Que tal um sorvete?</div>
         <div class="tbar"><i id="tmark" style="left:50%"></i></div>
+        <div class="tloc"><button type="button" id="tgps">Usar minha localização</button><button type="button" id="tcb">Trocar cidade</button></div>
+        <form id="tform" hidden><input id="tin" placeholder="Sua cidade" autocomplete="address-level2"><button type="submit">OK</button></form>
       </div>
     </div>
     <div class="px">
@@ -406,11 +423,15 @@ $('#gps').onclick=()=>{if(!navigator.geolocation){hint.textContent='Seu aparelho
  hint.textContent='Procurando você…';navigator.geolocation.getCurrentPosition(p=>found([p.coords.latitude,p.coords.longitude],'sua localização'),()=>{hint.textContent='Sem permissão de localização. Digite seu endereço acima.'},{enableHighAccuracy:true,timeout:9000,maximumAge:60000})};
 function unitHTML(u,best){return `<div class="unit${best?' best':''}"><div class="hd"><div>${best?'<span class="tag">MAIS PERTO DE VOCÊ</span>':''}<b>Ice Polar ${u.n}</b><small>${u.a} · ${u.b}${u.c!=='São Carlos'?' · '+u.c:''}</small>${openInfo(u)}</div>${u.d!=null?`<span class="km">${fkm(u.d)}</span>`:''}</div>
 <div class="acts"><a class="a-map" href="${gmaps(u)}" target="_blank" rel="noopener">Ver rota</a><a class="a-wz" href="${waze(u)}" target="_blank" rel="noopener">Waze</a>${u.ifood?`<a class="a-if" href="${u.ifood}" target="_blank" rel="noopener">iFood</a>`:''}</div></div>`}
-function found(ll,from){me=ll;const L=sorted(UNITS);const u=L[0];hint.textContent='';wx(ll,from==='sua localização'?'onde você está':'perto de '+from);
+function found(ll,from){me=ll;res.dataset.all='';ALL.textContent='Ver todas as 10 lojas';const L=sorted(UNITS);const u=L[0];hint.textContent='';wx(ll,from==='sua localização'?'onde você está':'perto de '+from);
  if(u.d>45){res.innerHTML=`<p class="from">A partir de <b>${from}</b></p><div class="far"><span>Desculpe, não atendemos a sua região ainda, mas você pode vir até São Carlos nos conhecer :)</span><button type="button" id="farall">Ver as lojas de São Carlos</button></div>`;res.classList.remove('show');void res.offsetWidth;res.classList.add('show');$('#farall').onclick=()=>{me=null;$('#all').click()};vib(12);return}
  res.innerHTML=`<p class="from">A partir de <b>${from}</b></p><div class="mapb"><iframe loading="lazy" title="Mapa Ice Polar ${u.n}" src="https://www.google.com/maps?q=${encodeURIComponent(u.g+', '+addr(u))}&z=15&output=embed"></iframe><span class="pinb">ICE POLAR ${u.n.toUpperCase()}</span></div>${unitHTML(u,true)}<div class="more">${L.slice(1,3).map(x=>unitHTML(x,false)).join('')}</div>`;
  res.classList.remove('show');void res.offsetWidth;res.classList.add('show');vib(12);setTimeout(()=>res.scrollIntoView({behavior:'smooth',block:'nearest'}),150)}
-$('#all').onclick=()=>{const L=sorted(UNITS);res.innerHTML=L.map((u,i)=>unitHTML(u,me&&i===0)).join('');res.classList.remove('show');void res.offsetWidth;res.classList.add('show')};
+const ALL=$('#all');
+function collapse(){res.classList.remove('show');res.innerHTML='';res.dataset.all='';ALL.textContent='Ver todas as 10 lojas'}
+ALL.onclick=()=>{if(res.dataset.all==='1'&&res.classList.contains('show')){collapse();return}
+ const L=sorted(UNITS);res.innerHTML=L.map((u,i)=>unitHTML(u,me&&i===0)).join('');res.dataset.all='1';res.classList.remove('show');void res.offsetWidth;res.classList.add('show');ALL.textContent='Recolher lista'};
+new MutationObserver(()=>{if(res.classList.contains('show')&&res.children.length&&!res.querySelector('.col')){const b=document.createElement('button');b.type='button';b.className='col';b.textContent='Recolher lista';b.onclick=collapse;res.appendChild(b)}}).observe(res,{childList:true,attributes:true,attributeFilter:['class']});
 
 /* ====== termômetro ====== */
 const TIERS=[
@@ -427,6 +448,9 @@ function showTemp(t,place){const T=TIERS.find(x=>t<=x.max);const box=$('#temp');
 async function wx(ll,place){const my=++wseq;try{const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${ll[0].toFixed(3)}&longitude=${ll[1].toFixed(3)}&current=temperature_2m&timezone=auto`);const j=await r.json();if(my!==wseq)return;const t=j.current&&j.current.temperature_2m;if(typeof t==='number')showTemp(t,place)}catch(e){}}
 async function cityOf(ll){try{const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${ll[0]}&longitude=${ll[1]}&localityLanguage=pt`);const j=await r.json();return j.city||j.locality||''}catch(e){return ''}}
 async function byGPS(){return new Promise(ok=>{if(!navigator.geolocation)return ok(false);navigator.geolocation.getCurrentPosition(async p=>{const ll=[p.coords.latitude,p.coords.longitude];wx(ll,await cityOf(ll));ok(true)},()=>ok(false),{enableHighAccuracy:false,timeout:8000,maximumAge:600000})})}
+$('#tgps').onclick=async()=>{$('#tcity').textContent='procurando você…';const ok=await byGPS();if(!ok)$('#tcity').textContent='sem permissão de localização, use Trocar cidade'};
+$('#tcb').onclick=()=>{const f=$('#tform');f.hidden=!f.hidden;if(!f.hidden)$('#tin').focus()};
+$('#tform').onsubmit=async e=>{e.preventDefault();const q=$('#tin').value.trim();if(!q)return;$('#tcity').textContent='procurando…';const f=await geocode(q,1);if(f&&f.length){const c=f[0].geometry.coordinates,pr=f[0].properties;wx([c[1],c[0]],pr.name||pr.city||q);$('#tform').hidden=true}else $('#tcity').textContent='não achei essa cidade'};
 (async()=>{let ll=SC,place='São Carlos';
  try{const r=await fetch('https://ipwho.is/');const j=await r.json();if(j&&j.success&&typeof j.latitude==='number'){ll=[j.latitude,j.longitude];place=j.city||''}}catch(e){}
  wx(ll,place);
