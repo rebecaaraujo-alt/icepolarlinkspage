@@ -216,7 +216,7 @@ button{background:none;border:0;cursor:pointer}
 :root{--soft:rgba(11,46,48,.72);--edge:transparent}
 html,body{background:#5CE8E2;color:#0B2E30}
 body{font-family:Nunito,system-ui,sans-serif}
-.bg{background:#5CE8E2}.bg i,.bg:before,.bg:after{display:none}
+.bg{background:#5CE8E2 url(img/ice.webp) center top/cover no-repeat}.bg i,.bg:before,.bg:after{display:none}
 .flake{text-shadow:none}
 .brand img{box-shadow:0 0 0 3px #F8F8F8}
 .kick{color:#0B2E30;text-shadow:none;opacity:1}
@@ -311,6 +311,16 @@ body{font-family:Nunito,system-ui,sans-serif}
 .mapb{background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8)}
 @media (prefers-reduced-motion:reduce){.bg i{animation:none}}
 @media (min-width:960px){.drip.m{display:none}.drip.d{display:block;height:84px}.hero{padding-top:44px}}
+
+/* ===== LAGO CONGELADO + VIDRO DE GELO ===== */
+.ice,.temp,.fs{background:rgba(255,255,255,.2);-webkit-backdrop-filter:blur(16px) saturate(1.7) brightness(1.08);backdrop-filter:blur(16px) saturate(1.7) brightness(1.08);border:1.5px solid rgba(255,255,255,.85);box-shadow:inset 0 1.5px 0 #fff,inset 0 -1px 0 rgba(255,255,255,.45),inset 0 0 22px rgba(255,255,255,.18),0 22px 40px -20px rgba(11,46,48,.5)}
+.fs{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(26px) saturate(1.6);backdrop-filter:blur(26px) saturate(1.6)}
+.card.ice,.near.ice,.quiz.ice{background:rgba(255,255,255,.22)}
+.unit:not(.best){background:rgba(255,255,255,.38)}
+.opts button{background:rgba(255,255,255,.4)}
+.ul a:not(.best){background:rgba(255,255,255,.5)}
+.mapb{background:rgba(255,255,255,.35)}
+.search{background:rgba(255,255,255,.92)}
 </style>
 </head>
 <body>
