@@ -217,7 +217,16 @@ button{background:none;border:0;cursor:pointer}
 html,body{background:#A9D9D8;color:#0B2E30}
 body{font-family:Nunito,system-ui,sans-serif}
 .bg{background:#BFE6E4 url(img/ice.webp?v=3) center top/cover no-repeat}.bg i,.bg:before,.bg:after{display:none}
-.flake{color:#fff!important;text-shadow:0 0 2px #1F8FA3,0 0 5px rgba(31,143,163,.85),0 1px 8px rgba(11,70,90,.45)!important;filter:drop-shadow(0 0 1px #1F8FA3)}
+.flake{color:#fff!important;text-shadow:0 0 6px rgba(60,150,165,.5)!important;filter:drop-shadow(0 1px 2px rgba(20,100,120,.25))}
+.dot{position:absolute;top:-12px;border-radius:50%;background:#fff;box-shadow:0 0 3px rgba(255,255,255,.9),0 0 2px rgba(40,130,150,.35);animation:fall linear infinite;will-change:transform}
+.px{gap:8px}
+.btn{flex-direction:row!important;align-items:center!important;gap:9px!important;padding:9px 30px 9px 9px!important;border-radius:18px!important}
+.btn .ic{width:30px!important;height:30px!important;border-radius:10px!important}
+.btn .ic svg{width:16px!important;height:16px!important}
+.b-99 .ic{font-size:13px!important}
+.btn .t{font-size:15px!important;line-height:1.05!important}
+.btn .s{font-size:10.5px!important;margin-top:2px!important}
+.btn .ar{top:50%!important;margin-top:-11px;right:10px!important;font-size:16px!important}
 .brand img{box-shadow:0 0 0 3px #F8F8F8}
 .kick{color:#0B2E30;text-shadow:none;opacity:1}
 .h{color:#0B2E30;text-shadow:none;text-transform:none;font-size:clamp(40px,12.5vw,52px);line-height:1.04;letter-spacing:-.3px;font-weight:700}
@@ -351,7 +360,7 @@ body{font-family:Nunito,system-ui,sans-serif}
 .dl-h .tt{padding-bottom:12px}
 .tt-s{font-size:26px!important}
 @media (min-width:960px){.sub{font-size:21px;max-width:440px}}
-</style>
+.htxt .temp{margin:0 auto 14px;display:inline-flex;max-width:calc(100% - 8px);text-align:left}.htxt .tmsg{font-size:12.5px}</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="calda-s" viewBox="0 0 400 60" preserveAspectRatio="none"><rect width="400" height="16"/><rect x="40" width="26" height="50" rx="13"/><rect x="140" width="20" height="34" rx="10"/><rect x="240" width="28" height="56" rx="14"/><rect x="340" width="18" height="30" rx="9"/></symbol><symbol id="calda" viewBox="0 0 1600 150" preserveAspectRatio="none"><rect width="1600" height="44"/><rect x="90" width="70" height="130" rx="35"/><rect x="300" width="52" height="86" rx="26"/><rect x="520" width="80" height="146" rx="40"/><rect x="760" width="48" height="76" rx="24"/><rect x="960" width="72" height="120" rx="36"/><rect x="1190" width="56" height="94" rx="28"/><rect x="1400" width="76" height="136" rx="38"/></symbol></defs></svg>
@@ -362,14 +371,7 @@ body{font-family:Nunito,system-ui,sans-serif}
   <header class="hero">
     <div class="brand"><img src="img/logo-original.png" alt="Ice Polar Sorvetes"></div>
     <div class="htxt">
-      <div class="kick w" style="animation-delay:.4s"><i></i>FEITO NA NOSSA FÁBRICA</div>
-      <h1 class="h" id="ht">Sorvete artesanal<br>de <em>verdade.</em></h1>
-      <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser.</p>
-    </div>
-  </header>
-
-  <section class="sheet">
-    <div class="temp" id="temp" style="--tc:#B3E9DB">
+      <div class="temp w" style="animation-delay:.4s;--tc:#B3E9DB" id="temp">
       <div class="bear" id="bear" role="img" aria-label="Urso polar da Ice Polar">
         <svg viewBox="0 0 100 100" aria-hidden="true">
 <defs><g id="bsh"><ellipse cx="50" cy="90" rx="31" ry="25"/><circle cx="23" cy="83" r="9"/><circle cx="77" cy="83" r="9"/><circle cx="26" cy="27" r="10"/><circle cx="74" cy="27" r="10"/><ellipse cx="50" cy="50" rx="32" ry="27"/></g></defs>
@@ -396,6 +398,13 @@ body{font-family:Nunito,system-ui,sans-serif}
         <div class="tmsg" id="tmsg">Que tal um sorvete artesanal hoje?</div>
       </div>
     </div>
+      <h1 class="h" id="ht">Sorvete artesanal<br>de <em>verdade.</em></h1>
+      <p class="sub w" style="animation-delay:1.3s">Do jeito que tem que ser.</p>
+    </div>
+  </header>
+
+  <section class="sheet">
+    
     <div class="dl-h"><div class="lab">DELIVERY</div><h2 class="tt tt-s">Peça <em>sem sair de casa</em></h2></div>
     <div class="px">
       <button class="btn b-ifood" data-sheet="ifood">
@@ -499,7 +508,8 @@ function vib(n){try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}}
 (()=>{const h=$('#ht');let d=.5;h.innerHTML=h.innerHTML.split(/(<br>|<em>|<\/em>)/).map(p=>/^</.test(p)?p:(/^\s/.test(p)?' ':'')+p.split(' ').filter(Boolean).map(w=>`<span class="w" style="animation-delay:${(d+=.13).toFixed(2)}s">${w}</span>`).join(' ')+(/\s$/.test(p)?' ':'')).join('');})();
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}}),{threshold:.08});$$('.rv').forEach(el=>io.observe(el));
 /* neve */
-if(!reduce){const sn=$('#snow');const N=innerWidth>700?22:14;for(let i=0;i<N;i++){const f=document.createElement('span');f.className='flake';f.textContent='❄';const s=20+Math.random()*24;const du=9+Math.random()*12;f.style.cssText=`left:${Math.random()*100}%;font-size:${s}px;opacity:${(.85+Math.random()*.15).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*80-40).toFixed(0)}px`;sn.appendChild(f)}}
+if(!reduce){const sn=$('#snow');const N=innerWidth>700?22:14;for(let i=0;i<(innerWidth>700?70:45);i++){const d=document.createElement('i');d.className='dot';const z=2+Math.random()*4,du=10+Math.random()*14;d.style.cssText=`left:${Math.random()*100}%;width:${z}px;height:${z}px;opacity:${(.55+Math.random()*.4).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*40-20).toFixed(0)}px`;sn.appendChild(d)}
+for(let i=0;i<N;i++){const f=document.createElement('span');f.className='flake';f.textContent='❄';const s=20+Math.random()*24;const du=9+Math.random()*12;f.style.cssText=`left:${Math.random()*100}%;font-size:${s}px;opacity:${(.7+Math.random()*.25).toFixed(2)};animation-duration:${du}s;animation-delay:${-Math.random()*du}s;--dx:${(Math.random()*80-40).toFixed(0)}px`;sn.appendChild(f)}}
 /* granulado nas cores da paleta */
 const SPR=['#EB2F65','#F8F8F8','#F6F282','#DF8CBA'];
 function sprinkle(x,y,n=12){if(reduce)return;for(let i=0;i<n;i++){const s=document.createElement('span');s.className='spr';const a=Math.random()*Math.PI*2,r=26+Math.random()*46;s.style.cssText=`left:${x}px;top:${y}px;background:${SPR[i%SPR.length]};--dx:${Math.cos(a)*r}px;--dy:${Math.sin(a)*r}px;--r:${Math.random()*180}deg`;document.body.appendChild(s);setTimeout(()=>s.remove(),950)}}
