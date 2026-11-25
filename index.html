@@ -93,8 +93,8 @@ button{background:none;border:0;cursor:pointer}
 .tmsg{font:700 14.5px/1.25 Barlow;margin-top:3px;color:var(--gelo)}
 .tbar{margin-top:9px;height:6px;border-radius:6px;position:relative;background:linear-gradient(90deg,#11DED7,#B3E9DB 30%,#F6F282 62%,#EB2F65)}
 .tbar i{position:absolute;top:-4px;width:14px;height:14px;border-radius:50%;background:#fff;border:3px solid var(--tc,#11DED7);transform:translateX(-50%);transition:left .8s}
-.tloc{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
-.tloc button,#tform button{padding:5px 10px;border-radius:99px;background:rgba(248,248,248,.16);border:1px solid rgba(248,248,248,.3);color:var(--gelo);font:700 11px Barlow}
+
+
 #tform{display:flex;gap:6px;margin-top:8px}#tform[hidden]{display:none}
 #tin{flex:1;min-width:0;padding:6px 10px;border-radius:10px;border:1px solid rgba(248,248,248,.4);background:rgba(248,248,248,.92);color:var(--ink);font:600 14px Barlow}
 #tform button{background:var(--verde);color:var(--ink);border:0}
@@ -257,8 +257,6 @@ button{background:none;border:0;cursor:pointer}
         <div class="tnum"><b id="tdeg">--°</b><span id="tcity">Buscando o clima…</span></div>
         <div class="tmsg" id="tmsg">Que tal um sorvete?</div>
         <div class="tbar"><i id="tmark" style="left:50%"></i></div>
-        <div class="tloc"><button type="button" id="tgps">Usar minha localização</button><button type="button" id="tcb">Trocar cidade</button></div>
-        <form id="tform" hidden><input id="tin" placeholder="Sua cidade" autocomplete="address-level2"><button type="submit">OK</button></form>
       </div>
     </div>
     <div class="px">
@@ -443,11 +441,9 @@ function showTemp(t,place){const T=TIERS.find(x=>t<=x.max);const box=$('#temp');
 async function wx(ll,place){const my=++wseq;try{const r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${ll[0].toFixed(3)}&longitude=${ll[1].toFixed(3)}&current=temperature_2m&timezone=auto`);const j=await r.json();if(my!==wseq)return;const t=j.current&&j.current.temperature_2m;if(typeof t==='number')showTemp(t,place)}catch(e){}}
 async function cityOf(ll){try{const r=await fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${ll[0]}&longitude=${ll[1]}&localityLanguage=pt`);const j=await r.json();return j.city||j.locality||''}catch(e){return ''}}
 async function byGPS(){return new Promise(ok=>{if(!navigator.geolocation)return ok(false);navigator.geolocation.getCurrentPosition(async p=>{const ll=[p.coords.latitude,p.coords.longitude];wx(ll,await cityOf(ll));ok(true)},()=>ok(false),{enableHighAccuracy:false,timeout:8000,maximumAge:600000})})}
-$('#tgps').onclick=async()=>{$('#tcity').textContent='procurando você…';const ok=await byGPS();if(!ok)$('#tcity').textContent='sem permissão de localização, use Trocar cidade'};
-$('#tcb').onclick=()=>{const f=$('#tform');f.hidden=!f.hidden;if(!f.hidden)$('#tin').focus()};
-$('#tform').onsubmit=async e=>{e.preventDefault();const q=$('#tin').value.trim();if(!q)return;$('#tcity').textContent='procurando…';const f=await geocode(q,1);if(f&&f.length){const c=f[0].geometry.coordinates,pr=f[0].properties;wx([c[1],c[0]],pr.name||pr.city||q);$('#tform').hidden=true}else $('#tcity').textContent='não achei essa cidade'};
 (async()=>{let ll=SC,place='São Carlos';
- try{const r=await fetch('https://ipwho.is/');const j=await r.json();if(j&&j.success&&typeof j.latitude==='number'){ll=[j.latitude,j.longitude];place=j.city||''}}catch(e){}
+ let got=false;try{const r=await fetch('/api/geo');const j=await r.json();if(j&&j.lat!=null){ll=[+j.lat,+j.lon];place=j.city||'';got=true}}catch(e){}
+ if(!got)try{const r=await fetch('https://ipwho.is/');const j=await r.json();if(j&&j.success&&typeof j.latitude==='number'){ll=[j.latitude,j.longitude];place=j.city||''}}catch(e){}
  wx(ll,place);
  byGPS()})();
 
